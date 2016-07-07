@@ -1,0 +1,28 @@
+Rodrigo,
+
+    Acho que vocês estão bem no inicio do processo de envio, vou iniciar do zero. Os documentos iniciais para você ler seriam:
+
+No site: www.tce.sc.gov.br entre em: e-Sfinge->e-Sfinge Captura
+Acesso os documentos:
+- Leiaute dos Arquivos Intermediários e-Sfinge Web Service Esfera Municipal e Consórcios
+- Documentação Web Service Esfera Municipal e Consórcios
+
+    Em anexo tem um exemplo em java de como enviar o WS. Seu objetivo é o melhor entendimento  do processo de envio dos dados. Por ser somente um exemplo para fins didáticos que não usa nenhum recurso de geração automática de código ou facilitadores na implementação. No caso real, cada usuário/empresa pode escolher a linguagem/framework que melhor lhe atende, sem qualquer prejuízo no envio.
+
+Temos duas máquinas:
+1) para desenvolvimento*:
+https://desenv2.tce.sc.gov.br:7443/esfinge/services/
+
+* Obs.:
+1) O banco de dados é geralmente atualizado com o da produção todo o final de semana.
+2) Nem todos os serviços desta máquina estão em produção
+3) Todos os assuntos com _alpha não foram homologados pelo TCE/SC, server como uma referência inicial, podem sofrer modificações até sua versão final
+
+Os usuários desta máquina são os mesmos de produção, mas com a senha '123456'.
+
+
+2) para produção
+https://esfingews.tce.sc.gov.br/esfinge/services/
+
+    Quanto ao cadastro do usuário, nos documentos que lhe enviei inicialmente isso é explicado, mas resumidamente quem cadastra para municípios é o Controle Interno Municipal.
+
