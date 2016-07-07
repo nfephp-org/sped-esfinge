@@ -9,7 +9,7 @@
                     </entry>
                     <entry>
                         <key>posicao</key>
-                        <value xsi:type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w 3.org/2001/XMLSchema-instance">2</value>
+                        <value xsi:type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">2</value>
                     </entry>
                     <entry>
                         <key>situacao</key>

@@ -1,9 +1,11 @@
 <?php
 
 $config = [
-    'username' => '',
-    'password' => '',
-    'codigoUnidadeGestora' => '',
+    'tpAmb' => 2,
+    'username' => '1006',
+    'password' => '123456',
+    'codigoUnidadeGestora' => '1006',
+    'pathFiles' => '/var/esfinge',
     'aProxyConf' => [
         'proxyIp' => '',
         'proxyPort' => '',

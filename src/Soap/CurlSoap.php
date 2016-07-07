@@ -2,6 +2,8 @@
 
 namespace NFePHP\Esfinge\Soap;
 
+use RuntimeException;
+
 class CurlSoap
 {
     /**
@@ -51,8 +53,14 @@ class CurlSoap
      */
     private $proxyPASS = '';
     
-    public function __construct()
+    public function __construct($timeout, $aproxy)
     {
+        $this->soapTimeout = $timeout;
+        $ipNumber = $aproxy['proxyIp'];
+        $port = $aproxy['proxyPort'];
+        $user = $aproxy['proxyUser'];
+        $pass = $aproxy['proxyPass'];
+        $this->setProxy($ipNumber, $port, $user, $pass);
     }
     
     /**
@@ -98,14 +106,14 @@ class CurlSoap
     public function send($urlservice, $namespace, $header, $body, $method)
     {
         //monta a mensagem ao webservice
-        $data = '<?xml version="1.0" encoding="utf-8"?>'.'<soap12:Envelope ';
+        $data = '<?xml version="1.0" encoding="utf-8"?>'.'<soap:Envelope ';
         $data .= 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ';
         $data .= 'xmlns:xsd="http://www.w3.org/2001/XMLSchema" ';
-        $data .= 'xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">';
-        $data .= '<soap12:Header>'.$header.'</soap12:Header>';
-        $data .= '<soap12:Body>'.$body.'</soap12:Body>';
-        $data .= '</soap12:Envelope>';
-        $data = Strings::clearMsg($data);
+        $data .= 'xmlns:soap="http://www.w3.org/2003/05/soap-envelope">';
+        $data .= '<soap:Header>'.$header.'</soap:Header>';
+        $data .= '<soap:Body>'.$body.'</soap:Body>';
+        $data .= '</soap:Envelope>';
+        $data = $this->clearMsg($data);
         $this->lastMsg = $data;
         //tamanho da mensagem
         $tamanho = strlen($data);
@@ -115,15 +123,20 @@ class CurlSoap
         //    'SOAPAction: "'.$method.'"',
         //    "Content-length: $tamanho");
         //"application/fastinfoset, */*"
+        //"Accept-Encoding", "gzip, deflate"
+	//"Content-encoding", "gzip"
+	//"Content-type", "application/octet-stream"
         $parametros = array(
-            'Content-Type: application/soap+xml;charset=utf-8',
+            'Content-Type: application/octet-stream',
+            'Accept-Encoding: gzip, deflate',
+            'Content-encoding: gzip',
             'SOAPAction: "'.$method.'"',
             "Content-length: $tamanho");
         //solicita comunicação via cURL
         $resposta = $this->zCommCurl($urlservice, $data, $parametros);
         if (empty($resposta)) {
             $msg = "Não houve retorno do Curl.\n $this->errorCurl";
-            throw new Exception\RuntimeException($msg);
+            throw new RuntimeException($msg);
         }
         //obtem o bloco html da resposta
         $xPos = stripos($resposta, "<");
@@ -131,7 +144,7 @@ class CurlSoap
         if ($this->infoCurl["http_code"] != '200') {
             //se não é igual a 200 houve erro
             $msg = $blocoHtml;
-            throw new Exception\RuntimeException($msg);
+            throw new RuntimeException($msg);
         }
         //obtem o tamanho da resposta
         $lenresp = strlen($resposta);
@@ -151,7 +164,7 @@ class CurlSoap
         }
         if ($xml == '') {
             $msg = "Não houve retorno de um xml verifique soapDebug!!";
-            throw new Exception\RuntimeException($msg);
+            throw new RuntimeException($msg);
         }
         if ($xml != '' && substr($xml, 0, 5) != '<?xml') {
             $xml = '<?xml version="1.0" encoding="utf-8"?>'.$xml;
@@ -240,5 +253,20 @@ class CurlSoap
         }
         //carrega a variavel debug
         $this->soapDebug = $data."\n\n".$txtInfo."\n".$resposta;
+    }
+    
+    /**
+     * clearMsg
+     * @param string $msg
+     * @return string
+     */
+    protected function clearMsg($msg)
+    {
+        $nmsg = str_replace(array(' standalone="no"','default:',':default',"\n","\r","\t"), '', $msg);
+        $nnmsg = str_replace('> ', '>', $nmsg);
+        if (strpos($nnmsg, '> ')) {
+            $nnmsg = $this->clearMsg((string) $nnmsg);
+        }
+        return $nnmsg;
     }
 }
