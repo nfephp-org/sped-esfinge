@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" xmlns:intf="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="listResponse1">
+
+      <wsdl:part name="listReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCompetenciaCorrrenteRequest">
+
+      <wsdl:part name="usuario" type="xsd:string"/>
+
+      <wsdl:part name="senha" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCompetenciaCorrrenteResponse">
+
+      <wsdl:part name="getCompetenciaCorrrenteReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="echoRequest">
+
+      <wsdl:part name="n" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listRequest">
+
+      <wsdl:part name="usuario" type="xsd:string"/>
+
+      <wsdl:part name="senha" type="xsd:string"/>
+
+      <wsdl:part name="classesXML" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="delRequest">
+
+      <wsdl:part name="usuario" type="xsd:string"/>
+
+      <wsdl:part name="senha" type="xsd:string"/>
+
+      <wsdl:part name="objetosXML" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="delResponse">
+
+      <wsdl:part name="delReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCompetenciaCorrrenteByEnteResponse">
+
+      <wsdl:part name="getCompetenciaCorrrenteByEnteReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listResponse">
+
+      <wsdl:part name="listReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCompetenciaCorrrenteByEnteRequest">
+
+      <wsdl:part name="usuario" type="xsd:string"/>
+
+      <wsdl:part name="senha" type="xsd:string"/>
+
+      <wsdl:part name="identificadorUG" type="xsd:int"/>
+
+      <wsdl:part name="identificadorUD" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addRequest">
+
+      <wsdl:part name="usuario" type="xsd:string"/>
+
+      <wsdl:part name="senha" type="xsd:string"/>
+
+      <wsdl:part name="objetosXML" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listRequest1">
+
+      <wsdl:part name="usuario" type="xsd:string"/>
+
+      <wsdl:part name="senha" type="xsd:string"/>
+
+      <wsdl:part name="classesXML" type="xsd:string"/>
+
+      <wsdl:part name="listarNulos" type="xsd:boolean"/>
+
+      <wsdl:part name="listarCompetencia" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addResponse">
+
+      <wsdl:part name="addReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="echoResponse">
+
+      <wsdl:part name="echoReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WSeO">
+
+      <wsdl:operation name="add" parameterOrder="usuario senha objetosXML">
+
+         <wsdl:input message="impl:addRequest" name="addRequest"/>
+
+         <wsdl:output message="impl:addResponse" name="addResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="list" parameterOrder="usuario senha classesXML">
+
+         <wsdl:input message="impl:listRequest" name="listRequest"/>
+
+         <wsdl:output message="impl:listResponse" name="listResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="list" parameterOrder="usuario senha classesXML listarNulos listarCompetencia">
+
+         <wsdl:input message="impl:listRequest1" name="listRequest1"/>
+
+         <wsdl:output message="impl:listResponse1" name="listResponse1"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="del" parameterOrder="usuario senha objetosXML">
+
+         <wsdl:input message="impl:delRequest" name="delRequest"/>
+
+         <wsdl:output message="impl:delResponse" name="delResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompetenciaCorrrenteByEnte" parameterOrder="usuario senha identificadorUG identificadorUD">
+
+         <wsdl:input message="impl:getCompetenciaCorrrenteByEnteRequest" name="getCompetenciaCorrrenteByEnteRequest"/>
+
+         <wsdl:output message="impl:getCompetenciaCorrrenteByEnteResponse" name="getCompetenciaCorrrenteByEnteResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompetenciaCorrrente" parameterOrder="usuario senha">
+
+         <wsdl:input message="impl:getCompetenciaCorrrenteRequest" name="getCompetenciaCorrrenteRequest"/>
+
+         <wsdl:output message="impl:getCompetenciaCorrrenteResponse" name="getCompetenciaCorrrenteResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="echo" parameterOrder="n">
+
+         <wsdl:input message="impl:echoRequest" name="echoRequest"/>
+
+         <wsdl:output message="impl:echoResponse" name="echoResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WSeOSoapBinding" type="impl:WSeO">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="add">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="list">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="list">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listRequest1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listResponse1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="del">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="delRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="delResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompetenciaCorrrenteByEnte">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCompetenciaCorrrenteByEnteRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCompetenciaCorrrenteByEnteResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompetenciaCorrrente">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCompetenciaCorrrenteRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCompetenciaCorrrenteResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="echo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="echoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://DefaultNamespace" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="echoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WSeOService">
+
+      <wsdl:port binding="impl:WSeOSoapBinding" name="WSeO">
+
+         <wsdlsoap:address location="http://esfinge.tce.sc.gov.br:8080/axis/WSeO.jws"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
