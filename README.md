@@ -1,4 +1,4 @@
-# SPED-EFINGE
+# SPED-ESFINGE
 
 ## TCE Santa Catarina
 
