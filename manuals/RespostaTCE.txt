@@ -1,4 +1,11 @@
-Rodrigo,
+O que nós precisamos agora são os seguintes:
+
+- Servidor
+- SituacaoServidorFolhaPagamento
+- ComponentesFolhaPagamento
+- FolhaPagamento
+
+Do TCE:
 
     Acho que vocês estão bem no inicio do processo de envio, vou iniciar do zero. Os documentos iniciais para você ler seriam:
 

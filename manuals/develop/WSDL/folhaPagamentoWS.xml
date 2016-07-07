@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://folhapagamento.ws.tce.sc.gov.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="FolhaPagamentoWSImplService" targetNamespace="http://folhapagamento.ws.tce.sc.gov.br/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://folhapagamento.ws.tce.sc.gov.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://folhapagamento.ws.tce.sc.gov.br/">
+            <xs:element name="item" type="tns:item"/>
+            <xs:element name="enviar" type="tns:enviar"/>
+            <xs:element name="enviarResponse" type="tns:enviarResponse"/>
+            <xs:element name="listar" type="tns:listar"/>
+            <xs:element name="listarResponse" type="tns:listarResponse"/>
+            <xs:element name="folhaPagamento" type="tns:folhaPagamento"/>
+            <xs:element name="codigoMensagem" type="tns:codigoMensagem"/>
+            <xs:complexType name="item">
+                <xs:all>
+                    <xs:element maxOccurs="1" minOccurs="0" name="campo" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="valor" type="xs:anySimpleType"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="tipo" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="tamanho" type="xs:int"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="sufixo_operador" type="xs:string"/>
+                </xs:all>
+            </xs:complexType>
+            <xs:complexType name="codigoMensagem">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+                    <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="responseTCEWS">
+                <xs:sequence>
+                    <xs:element name="dados">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="key" type="xs:string"/>
+                                            <xs:element minOccurs="0" name="value" type="xs:anyType"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="folhaPagamento">
+                <xs:all>
+                    <xs:element maxOccurs="1" minOccurs="0" name="idRetorno" nillable="false" type="xs:int"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="mensagemProcessamento" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="0" name="codigoProcessamento" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="numeroCPFServidor" nillable="false">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value=".*[A-Z0-9a-z]{1,}.*"/>
+                                <xs:minLength value="1"/>
+                                <xs:maxLength value="11"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="1" name="numeroMatriculaServidor" nillable="false">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value=".*[A-Z0-9a-z]{1,}.*"/>
+                                <xs:minLength value="1"/>
+                                <xs:maxLength value="16"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="1" name="anoMes" nillable="false">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:integer">
+                                <xs:minInclusive value="0"/>
+                                <xs:maxInclusive value="999999"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="1" name="numeroSequencial" nillable="false">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:integer">
+                                <xs:minInclusive value="0"/>
+                                <xs:maxInclusive value="99"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="1" name="codigoComponenteFolhaPagamento" nillable="false">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value=".*[A-Z0-9a-z]{1,}.*"/>
+                                <xs:minLength value="1"/>
+                                <xs:maxLength value="16"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="1" name="indicativoProventoDesconto" nillable="false">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value="P|D"/>
+                                <xs:minLength value="1"/>
+                                <xs:maxLength value="1"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="1" name="valorComponenteFolhaPagamento" nillable="false">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                                <xs:maxInclusive value="9999999999999999"/>
+                                <xs:fractionDigits value="99"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                </xs:all>
+            </xs:complexType>
+            <xs:complexType name="enviar">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="competencia" nillable="false" type="xs:int"/>
+                    <xs:element maxOccurs="5000" minOccurs="1" name="folhaPagamento" nillable="false" type="tns:folhaPagamento">
+                        <xs:unique name="idRetorno-unico">
+                            <xs:selector xpath="folhaPagamento"/>
+                            <xs:field xpath="idRetorno"/>
+                        </xs:unique>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="listar">
+                <xs:sequence>
+                    <xs:element maxOccurs="1" minOccurs="1" name="codigoUg" nillable="true" type="xs:int"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="competencia" nillable="false" type="xs:int"/>
+                    <xs:element maxOccurs="1" minOccurs="1" name="PAGINA" nillable="false" type="xs:int"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="filtros" type="tns:item"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="enviarResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="listarResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Exception" type="tns:Exception"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="enviar">
+        <wsdl:part element="tns:enviar" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="enviarResponse">
+        <wsdl:part element="tns:enviarResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listar">
+        <wsdl:part element="tns:listar" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listarResponse">
+        <wsdl:part element="tns:listarResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part element="tns:Exception" name="Exception"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="FolhaPagamento">
+        <wsdl:operation name="enviar">
+            <wsdl:input message="tns:enviar" name="enviar"></wsdl:input>
+            <wsdl:output message="tns:enviarResponse" name="enviarResponse"></wsdl:output>
+            <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="listar">
+            <wsdl:input message="tns:listar" name="listar"></wsdl:input>
+            <wsdl:output message="tns:listarResponse" name="listarResponse"></wsdl:output>
+            <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="FolhaPagamentoWSImplServiceSoapBinding" type="tns:FolhaPagamento">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="enviar">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="enviar">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="enviarResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="listar">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="listar">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="listarResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="FolhaPagamentoWSImplService">
+        <wsdl:port binding="tns:FolhaPagamentoWSImplServiceSoapBinding" name="FolhaPagamentoWSImplPort">
+            <soap:address location="https://desenv2.tce.sc.gov.br:7443/esfinge/services/folhaPagamentoWS"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
