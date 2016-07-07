@@ -1,0 +1,11 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:iniciarTransferenciaResponse xmlns:ns2="http://token.ws.tce.sc.gov.br/">
+            <return>
+                <dados/>
+                <mensagem>Início de transferência liberado</mensagem>
+                <status>OK</status>
+            </return>
+        </ns2:iniciarTransferenciaResponse>
+    </soap:Body>
+</soap:Envelope>

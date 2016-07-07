@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="55986cf3-edc9-43ea-8da8-6a8783c18441" activeEnvironment="Default" name="TCESitServidorFolha" resourceRoot="${projectDir}" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="57c4a0e7-450e-483b-94de-5a83b8d107c6" wsaVersion="NONE" name="SituacaoServidorFolhaPagamentoWSImplServiceSoapBinding" type="wsdl" bindingName="{http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/}SituacaoServidorFolhaPagamentoWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="situacaoServidorFolhaPagamentoWS.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/var/www/sped/sped-esfinge/manuals/develop/WSDL/situacaoServidorFolhaPagamentoWS.xml"><con:part><con:url>file:/var/www/sped/sped-esfinge/manuals/develop/WSDL/situacaoServidorFolhaPagamentoWS.xml</con:url><con:content><![CDATA[<wsdl:definitions name="SituacaoServidorFolhaPagamentoWSImplService" targetNamespace="http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/">
+      <xs:element name="item" type="tns:item"/>
+      <xs:element name="enviar" type="tns:enviar"/>
+      <xs:element name="enviarResponse" type="tns:enviarResponse"/>
+      <xs:element name="listar" type="tns:listar"/>
+      <xs:element name="listarResponse" type="tns:listarResponse"/>
+      <xs:element name="situacaoServidorFolhaPagamento" type="tns:situacaoServidorFolhaPagamento"/>
+      <xs:element name="codigoMensagem" type="tns:codigoMensagem"/>
+      <xs:complexType name="item">
+        <xs:all>
+          <xs:element maxOccurs="1" minOccurs="0" name="campo" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="valor" type="xs:anySimpleType"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="tipo" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="tamanho" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="sufixo_operador" type="xs:string"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="codigoMensagem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="responseTCEWS">
+        <xs:sequence>
+          <xs:element name="dados">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="key" type="xs:string"/>
+                      <xs:element minOccurs="0" name="value" type="xs:anyType"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="situacaoServidorFolhaPagamento">
+        <xs:all>
+          <xs:element maxOccurs="1" minOccurs="0" name="idRetorno" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="mensagemProcessamento" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="codigoProcessamento" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="numeroCPFServidor" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="\d{1,11}"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="numeroMatriculaServidor" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value=".*[A-Z0-9a-z]{1,}.*"/>
+                <xs:minLength value="1"/>
+                <xs:maxLength value="16"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="anoMes" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="999999"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="numeroSequencial" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="99"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="quantidadeHorasServidor" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="999"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="tipoVinculoServidor" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="99"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="tipoSituacaoServidor" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="99"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="enviar">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="competencia" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="5000" minOccurs="1" name="situacaoServidorFolhaPagamento" nillable="false" type="tns:situacaoServidorFolhaPagamento">
+            <xs:unique name="idRetorno-unico">
+              <xs:selector xpath="situacaoServidorFolhaPagamento"/>
+              <xs:field xpath="idRetorno"/>
+            </xs:unique>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listar">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="codigoUg" nillable="true" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="competencia" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="PAGINA" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="filtros" type="tns:item"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="enviarResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception"/>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="enviar">
+    <wsdl:part element="tns:enviar" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="enviarResponse">
+    <wsdl:part element="tns:enviarResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="listar">
+    <wsdl:part element="tns:listar" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="listarResponse">
+    <wsdl:part element="tns:listarResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception"/>
+  </wsdl:message>
+  <wsdl:portType name="SituacaoServidorFolhaPagamento">
+    <wsdl:operation name="enviar">
+      <wsdl:input message="tns:enviar" name="enviar"/>
+      <wsdl:output message="tns:enviarResponse" name="enviarResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <wsdl:input message="tns:listar" name="listar"/>
+      <wsdl:output message="tns:listarResponse" name="listarResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SituacaoServidorFolhaPagamentoWSImplServiceSoapBinding" type="tns:SituacaoServidorFolhaPagamento">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="enviar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="enviar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="enviarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SituacaoServidorFolhaPagamentoWSImplService">
+    <wsdl:port binding="tns:SituacaoServidorFolhaPagamentoWSImplServiceSoapBinding" name="SituacaoServidorFolhaPagamentoWSImplPort">
+      <soap:address location="https://desenv2.tce.sc.gov.br:7443/esfinge/services/situacaoServidorFolhaPagamentoWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/situacaoServidorFolhaPagamentoWS</con:endpoint></con:endpoints><con:operation id="385f2a79-4090-4770-b970-a10ccbcb4a33" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1bbe2d7a-ccc1-4a5b-a28b-752fffa918b5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/situacaoServidorFolhaPagamentoWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sit="http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sit:enviar>
+         <chaveToken>?</chaveToken>
+         <competencia>?</competencia>
+         <!--1 to 5000 repetitions:-->
+         <situacaoServidorFolhaPagamento>
+            <!--You may enter the following 10 items in any order-->
+            <!--Optional:-->
+            <idRetorno>?</idRetorno>
+            <!--Optional:-->
+            <mensagemProcessamento>?</mensagemProcessamento>
+            <!--Optional:-->
+            <codigoProcessamento>?</codigoProcessamento>
+            <numeroCPFServidor>?</numeroCPFServidor>
+            <numeroMatriculaServidor>?</numeroMatriculaServidor>
+            <anoMes>?</anoMes>
+            <numeroSequencial>?</numeroSequencial>
+            <!--Optional:-->
+            <quantidadeHorasServidor>?</quantidadeHorasServidor>
+            <tipoVinculoServidor>?</tipoVinculoServidor>
+            <tipoSituacaoServidor>?</tipoSituacaoServidor>
+         </situacaoServidorFolhaPagamento>
+      </sit:enviar>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/SituacaoServidorFolhaPagamento/enviar"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5b3e11d6-ca97-4c47-bb68-6181d10c33de" isOneWay="false" action="" name="listar" bindingOperationName="listar" type="Request-Response" outputName="listarResponse" inputName="listar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f0494d1-7c35-43b1-9515-a716fd89ccde" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/situacaoServidorFolhaPagamentoWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sit="http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sit:listar>
+         <codigoUg>?</codigoUg>
+         <chaveToken>?</chaveToken>
+         <competencia>?</competencia>
+         <PAGINA>?</PAGINA>
+         <!--Zero or more repetitions:-->
+         <filtros>
+            <!--You may enter the following 5 items in any order-->
+            <!--Optional:-->
+            <campo>?</campo>
+            <!--Optional:-->
+            <valor>?</valor>
+            <!--Optional:-->
+            <tipo>?</tipo>
+            <!--Optional:-->
+            <tamanho>?</tamanho>
+            <!--Optional:-->
+            <sufixo_operador>?</sufixo_operador>
+         </filtros>
+      </sit:listar>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/SituacaoServidorFolhaPagamento/listar"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
