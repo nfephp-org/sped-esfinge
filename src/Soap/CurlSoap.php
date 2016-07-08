@@ -133,6 +133,25 @@ class CurlSoap
             'SOAPAction: "'.$method.'"',
             "Content-length: $tamanho");
         //solicita comunicação via cURL
+        //###########################################
+        //
+        if ($method == 'cancelarTransferencia') {
+            $resposta = file_get_contents('../tests/fixtures/responseCancelarTransferencia.xml');
+        }
+        if ($method == 'finalizarTransferencia') {
+            $resposta = file_get_contents('../tests/fixtures/responseFinalizarTransferencia.xml');
+        }
+        if ($method == 'iniciarTransferencia') {
+            $resposta = file_get_contents('../tests/fixtures/responseIniciarTransferencia.xml');
+        }
+        if ($method == 'obterToken') {
+            $resposta = file_get_contents('../tests/fixtures/responseObterToken.xml');
+        }
+        if ($method == 'obterSituacaoToken') {
+            $resposta = file_get_contents('../tests/fixtures/responseObterSituacaoToken.xml');
+        }
+        $this->infoCurl["http_code"] = '200';
+        //###########################################
         //$resposta = $this->zCommCurl($urlservice, $data, $parametros);
         if (empty($resposta)) {
             $msg = "Não houve retorno do Curl.\n $this->errorCurl";
