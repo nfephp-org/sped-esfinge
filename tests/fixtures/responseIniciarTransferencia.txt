@@ -1,1 +1,1 @@
-{"bStat":true,"message":"In\u00edcio de transfer\u00eancia liberado"}
+{"bStat":true,"message":"In\u00edcio de transfer\u00eancia liberado","status":"OK"}

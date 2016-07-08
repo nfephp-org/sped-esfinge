@@ -89,7 +89,7 @@ class Tools extends Base
      *   S - Verifica a situação do token
      * @param string $method
      */
-    public function token($method = 'O')
+    public function token($method = self::TK_O)
     {
         $uri = $this->url[$this->tpAmb].'/esfinge/services/tokenWS';
         $namespace = 'http://token.ws.tce.sc.gov.br/';
@@ -139,6 +139,15 @@ class Tools extends Base
                 if ($this->tokenid == '') {
                     //não é possivel iniciar sem um token valido
                     throw new RuntimeException('Não é possivel iniciar a tranferência sem um token valido');
+                    //$this->token(self::TK_O);
+                }
+                if ($this->flagIniciar === true) {
+                    $resp = [
+                        'bStat' => true,
+                        'message' => 'Início de transferência liberado',
+                        'status' => 'OK'
+                    ];
+                    break;
                 }
                 //Antes de iniciar a transferência dos dados propriamente dita será necessário executar
                 //o serviço iniciarTransferencia
@@ -154,8 +163,15 @@ class Tools extends Base
                 break;
             case 'O':
                 if ($this->tokenid != '') {
-                    //já existe um token
-                    throw new RuntimeException('Já existe um token aberto.');
+                    $resp = [
+                        'bStat' => true,
+                        'message' => 'Token criado com sucesso',
+                        'status' => 'OK',
+                        'chaveToken' => $this->tokenid,
+                        'posicao' => 2,
+                        'situacao' => 'Pronto para envio ou consulta'
+                    ];
+                    break;
                 }
                 $met = 'obterToken';
                 $body = "<obterToken xmlns=\"$namespace\">"
@@ -200,6 +216,19 @@ class Tools extends Base
         return $resp;
     }
     
+    protected function obterTokenIniciarTransferencia($data = array())
+    {
+        if (empty($data)) {
+            throw new InvalidArgumentException('Não foram passados dados para o método');
+        }
+        $this->token(self::TK_O);
+        $this->token(self::TK_I);
+        if ($this->tokenid == '' || $this->flagIniciar === false) {
+            throw new RuntimeException("Falha token:$this->tokenid , Iniciar: $this->flagIniciar");
+        }
+        $this->buildSoapHeader();
+    }
+
     /**
      * Servidor
      * @param array $data
@@ -208,27 +237,13 @@ class Tools extends Base
      */
     public function servidor($data = array(), $method = 'L')
     {
-        $uri = 'servidorWS';
+        $this->obterTokenIniciarTransferencia($data);
+        $uri = $this->url[$this->tpAmb].'/esfinge/services/servidorWS';
         $namespace = 'http://servidor.ws.tce.sc.gov.br/';
         $met = 'servidor'.$method;
-        //obtêm o token para essa operação
-        if ($this->tokenid == '') {
-            $this->token('O');
-        }
-        if (! $this->flagIniciar) {
-            //soliciar inicio de transferencia
-            $this->token('I');
-        }
-        if ($this->tokenid != '' && $this->flagIniciar) {
-            //constroi a mensagem
-            $msg = $this->buildMsgH($method, $namespace);
-            $msg .= $this->buildMsgB($method, $data);
-            //envia a mensagem via cURL
-            $retorno = $this->envia($msg, $body, $method);
-            $resp =  Response::readReturn($met, $retorno);
-            //se sucesso
-            $this->token('F');
-        }
+        //envia a mensagem via cURL
+        $resp = $this->envia($uri, $namespace, $data, $method, $met);
+        return $resp;
     }
     
     /**
@@ -239,15 +254,12 @@ class Tools extends Base
      */
     public function situacaoServidorFolhaPagamento($data = array(), $method = 'L')
     {
-        $uri = 'situacaoServidorFolhaPagamentoWS';
+        $this->obterTokenIniciarTransferencia($data);
+        $uri = $this->url[$this->tpAmb].'/esfinge/services/situacaoServidorFolhaPagamentoWS';
         $namespace = 'http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/';
         $met = 'situacaoServidorFolhaPagamento'.$method;
-        //constroi a mensagem
-        $msg = $this->buildMsgH($method, $namespace);
-        $msg .= $this->buildMsgB($method, $data);
-        //envia a mensagem via cURL
-        $retorno = $this->envia($msg, $body, $method);
-        $resp =  Response::readReturn($met, $retorno);
+        $resp = $this->envia($uri, $namespace, $data, $method, $met);
+        return $resp;
     }
 
     /**
@@ -258,15 +270,12 @@ class Tools extends Base
      */
     public function componentesFolhaPagamento($data = array(), $method = 'L')
     {
-        $uri = 'componentesFolhaPagamentoWS';
+        $this->obterTokenIniciarTransferencia($data);
+        $uri = $this->url[$this->tpAmb].'/esfinge/services/componentesFolhaPagamentoWS';
         $namespace = 'http://componentesfolhapagamento.ws.tce.sc.gov.br/';
         $met = 'componentesFolhaPagamento'.$method;
-        //constroi a mensagem
-        $msg = $this->buildMsgH($method, $namespace);
-        $msg .= $this->buildMsgB($method, $data);
-        //envia a mensagem via cURL
-        $retorno = $this->envia($msg, $body, $method);
-        $resp =  Response::readReturn($met, $retorno);
+        $resp = $this->envia($uri, $namespace, $data, $method, $met);
+        return $resp;
     }
 
     /**
@@ -277,17 +286,11 @@ class Tools extends Base
      */
     public function folhaPagamento($data = array(), $method = 'L')
     {
-        if (empty($data)) {
-            return;
-        }
-        $uri = 'folhaPagamentoWS';
+        $this->obterTokenIniciarTransferencia($data);
+        $uri = $this->url[$this->tpAmb].'/esfinge/services/folhaPagamentoWS';
         $namespace = 'http://folhapagamento.ws.tce.sc.gov.br/';
         $met = 'folhaPagamento'.$method;
-        //constroi a mensagem
-        $msg = $this->buildMsgH($method, $namespace);
-        $msg .= $this->buildMsgB($method, $data);
-        //envia a mensagem via cURL
-        $retorno = $this->envia($msg, $body, $method);
-        $resp =  Response::readReturn($met, $retorno);
+        $resp = $this->envia($uri, $namespace, $data, $method, $met);
+        return $resp;
     }
 }
