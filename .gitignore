@@ -7,4 +7,5 @@ build
 composer.lock
 docs
 config.json
+config.php
 

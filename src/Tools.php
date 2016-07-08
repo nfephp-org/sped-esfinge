@@ -3,9 +3,9 @@
 namespace NFePHP\Esfinge;
 
 use InvalidArgumentException;
+use RuntimeException;
 use NFePHP\Esfinge\Response;
 use NFePHP\Esfinge\Base;
-use NFePHP\Esfinge\Soap\CurlSoap;
 
 class Tools extends Base
 {
@@ -41,6 +41,11 @@ class Tools extends Base
      * @var bool
      */
     private $flagIniciar = false;
+    /**
+     * Datahora da ultima solicitação da situação do token
+     * @var timestramp
+     */
+    private $tsLastSitToken;
     
 
     public function __construct($configJson = '')
@@ -91,6 +96,10 @@ class Tools extends Base
         
         switch ($method) {
             case 'C':
+                if ($this->flagIniciar === false) {
+                    //não está iniciada a tranferencia então não dá para cancelar
+                    throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser cancelada');
+                }
                 //cancela as operações realizadas com um determinado token
                 //se OK o token é removido e todas as operações com ele
                 //realizadas são descartadas
@@ -99,8 +108,7 @@ class Tools extends Base
                 $body = "<cancelarTransferencia xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</cancelarTransferencia>";
-                $retorno = file_get_contents('../tests/fixtures/responseCancelarTransferencia.xml');
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
                     $this->tokenid = '';
@@ -108,12 +116,19 @@ class Tools extends Base
                 }
                 break;
             case 'F':
+                if ($this->flagIniciar === false) {
+                    //não está iniciada a tranferencia então não dá para finalizar
+                    throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser finalizada');
+                }
+                //Ao final da transferência caso queria confirmar todos os elementos inseridos
+                //(que não retornaram erro) nesta sessão, ou seja todos os elementos ligados a
+                //determinado token passado para o serviço. Uma vez executado este serviço
+                //o token atual será descartado.
                 $met = 'finalizarTransferencia';
                 $body = "<finalizarTransferencia xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</finalizarTransferencia>";
-                $retorno = file_get_contents('../tests/fixtures/responseFinalizarTransferencia.xml');
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
                     $this->tokenid = '';
@@ -121,37 +136,65 @@ class Tools extends Base
                 }
                 break;
             case 'I':
+                if ($this->tokenid == '') {
+                    //não é possivel iniciar sem um token valido
+                    throw new RuntimeException('Não é possivel iniciar a tranferência sem um token valido');
+                }
+                //Antes de iniciar a transferência dos dados propriamente dita será necessário executar
+                //o serviço iniciarTransferencia
                 $met = 'iniciarTransferencia';
                 $body = "<iniciarTransferencia xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</iniciarTransferencia>";
-                $retorno = file_get_contents('../tests/fixtures/responseIniciarTransferencia.xml');
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
                     $this->flagIniciar = true;
                 }
                 break;
             case 'O':
+                if ($this->tokenid != '') {
+                    //já existe um token
+                    throw new RuntimeException('Já existe um token aberto.');
+                }
                 $met = 'obterToken';
                 $body = "<obterToken xmlns=\"$namespace\">"
                     . "<codigoUg>$this->codigoUnidadeGestora</codigoUg>"
                     . "</obterToken>";
-                $retorno = file_get_contents('../tests/fixtures/responseObterToken.xml');
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat'] && $resp['chaveToken'] != '') {
                     $this->tokenid = $resp['chaveToken'];
                 }
                 break;
             case 'S':
+                //Retorna a situação do token passado como parâmetro. Para evitar solicitações
+                //indefinidas a este serviço o sistema punirá com a remoção do token da fila
+                //sempre que for feita duas chamadas seguidas do serviço obterSituacaoToken
+                //em menos de cinco segundos.
+                if ($this->tokenid == '') {
+                    //não é possivel verificar o token
+                    throw new RuntimeException('Não existe um token aberto.');
+                }
+                //se tentativa de verificação ocorrer em menos de 2 seg
+                //retorna como OK
+                if ((time()-$this->tsLastSitToken) <= 2) {
+                    $resp = [
+                        'bStat' => true,
+                        'message' => 'Situação token obtida com sucesso',
+                        'status' => 'OK',
+                        'posicao' => 1,
+                        'situacao' => 'Pronto para envio ou consulta'
+                    ];
+                    break;
+                }
                 $met = 'obterSituacaoToken';
                 $body = "<obterSituacaoToken xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</obterSituacaoToken>";
-                $retorno = file_get_contents('../tests/fixtures/responseObterSituacaoToken.xml');
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
+                $this->tsLastSitToken = time();
                 break;
         }
         return $resp;
