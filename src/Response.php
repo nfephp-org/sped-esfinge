@@ -6,7 +6,7 @@ use DOMDocument;
 
 class Response
 {
-    public static function readReturn($method, $xmlResp = '')
+    public static function readReturn($method = '', $xmlResp = '')
     {
         if (trim($xmlResp) == '') {
             return [
@@ -23,7 +23,7 @@ class Response
             return [
                 'bStat' => false,
                 'message' => $xmlResp,
-                'errors' => $errors    
+                'errors' => $errors
             ];
         }
         //foi retornado um xml continue
@@ -49,19 +49,30 @@ class Response
         if ($std->return->status == 'ERRO') {
             return [
                 'bStat' => false,
-                'message' => $std->return->mensagem
-            ];        
+                'message' => $std->return->mensagem,
+                'status' => $std->return->status
+            ];
         }
         $aResp = [
             'bStat' => true,
-            'message' => $std->return->mensagem
+            'message' => $std->return->mensagem,
+            'status' => $std->return->status
         ];
         $dados = $std->return->dados;
         if (property_exists($dados, 'entry')) {
             foreach ($std->return->dados->entry as $entry) {
-                $aResp[$entry->key] = $entry->value;
+                if (is_object($entry->value)) {
+                    if (property_exists($entry->value, 'registros')) {
+                        foreach ($entry->value->registros as $registro) {
+                            $aReg[$registro->campo] = $registro->valor;
+                        }
+                    }
+                    $aResp[$entry->key] = $aReg;
+                } else {
+                    $aResp[$entry->key] = $entry->value;
+                }
             }
-        }    
+        }
         return $aResp;
     }
     

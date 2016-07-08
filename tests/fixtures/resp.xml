@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:listarArquivoResponse xmlns:ns2="http://arquivofisico.ws.tce.sc.gov.br/">
+            <return>
+                <dados>
+                    <entry>
+                        <key>Arquivo 1</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:registro">
+                            <registros>
+                                <campo>nome</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">asdasdas.txt</valor>
+                            </registros>
+                            <registros>
+                                <campo>data</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:dateTime">2015-05-01T12:00:00.040-03:00</valor>
+                            </registros>
+                            <registros>
+                                <campo>tamanho</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">57</valor>
+                            </registros>
+                            <registros>
+                                <campo>MD5</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">418051c3a07169a508da2168e9c5a2f6</valor>
+                            </registros>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Arquivo 2</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:registro">
+                            <registros>
+                                <campo>nome</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">xxxxx.txt</valor>
+                            </registros>
+                            <registros>
+                                <campo>data</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:dateTime">2014-06-121T12:00:00.040-03:00</valor>
+                            </registros>
+                            <registros>
+                                <campo>tamanho</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:long">157</valor>
+                            </registros>
+                            <registros>
+                                <campo>MD5</campo>
+                                <valor xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">33333aaaa3a07169a508da2168e9c5a2f6</valor>
+                            </registros>
+                        </value>
+                    </entry>                    
+                    <entry>
+                        <key>TOTAL</key>
+                        <value xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:int">2</value>
+                    </entry>
+                </dados>
+                <mensagem> Consulta executada com sucesso com 2 resultado(s)</mensagem>
+                <status>OK</status>
+            </return>
+        </ns2:listarArquivoResponse>
+    </soap:Body>
+</soap:Envelope>

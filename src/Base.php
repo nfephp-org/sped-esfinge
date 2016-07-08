@@ -2,6 +2,7 @@
 
 namespace NFePHP\Esfinge;
 
+use InvalidArgumentException;
 use NFePHP\Esfinge\Soap\CurlSoap;
 use NFePHP\Esfinge\Files\FileFolders;
 
@@ -77,6 +78,9 @@ class Base
      */
     public function __construct($configJson = '')
     {
+        if (empty($configJson)) {
+            throw new InvalidArgumentException('A configuração deve ser passada.');
+        }
         $config = $configJson;
         if (is_file($configJson)) {
             $config = file_get_contents($configJson);
@@ -261,11 +265,16 @@ class Base
      */
     protected function buildHeader()
     {
-        $this->header = "<wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" soap:mustUnderstand=\"1\">"
-            . "<wsse:UsernameToken xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">"
+        $this->header = "<wsse:Security "
+            . "xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" "
+            . "soap:mustUnderstand=\"1\">"
+            . "<wsse:UsernameToken "
+            . "xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">"
             . "<wsse:Username>"
             . $this->username
-            . "</wsse:Username><wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">"
+            . "</wsse:Username><wsse:Password "
+            . "Type=\"http://docs.oasis-open.org/wss/2004/01/"
+            . "oasis-200401-wss-username-token-profile-1.0#PasswordText\">"
             . $this->password
             . "</wsse:Password>"
             . "</wsse:UsernameToken>"
@@ -307,9 +316,12 @@ class Base
     protected function loadSoapClass()
     {
         $this->oSoap = null;
-        $this->oSoap = new CurlSoap(
-            $this->soapTimeout,
-            $this->aProxy
-        );
+        //if (! is_object($soap)) {
+            $soap = new CurlSoap(
+                $this->soapTimeout,
+                $this->aProxy
+            );
+        //}
+        $this->oSoap = $soap;
     }
 }

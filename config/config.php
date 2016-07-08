@@ -1,6 +1,7 @@
 <?php
 
 $config = [
+    'atualizacao' => data('Y-m-d H:i:s'),
     'tpAmb' => 2,
     'username' => '1006',
     'password' => '123456',
