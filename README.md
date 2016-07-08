@@ -14,7 +14,7 @@ Este pacote está em desenvolvimento, não é funcional e não deve ser utilizad
 [![Issues][ico-issues]][link-issues]
 [![Forks][ico-forks]][link-forks]
 [![Stars][ico-stars]][link-stars]
-[![Chat][ico-gitter]][link-gitter]
+
 
 ## TCE Santa Catarina
 
