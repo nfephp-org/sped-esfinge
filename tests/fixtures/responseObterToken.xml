@@ -1,0 +1,24 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:obterTokenResponse xmlns:ns2="http://token.ws.tce.sc.gov.br/">
+            <return>
+                <dados>
+                    <entry>
+                        <key>chaveToken</key>
+                        <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">d95a313b-4ba9-49b1-aca0-53c1f1bd16a4</value>
+                    </entry>
+                    <entry>
+                        <key>posicao</key>
+                        <value xsi:type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">2</value>
+                    </entry>
+                    <entry>
+                        <key>situacao</key>
+                        <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Pronto para envio ou consulta</value>
+                    </entry>
+                </dados>
+                <mensagem>Token criado com sucesso</mensagem>
+                <status>OK</status>
+            </return>
+        </ns2:obterTokenResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,1 @@
+{"bStat":true,"message":"Token criado com sucesso","chaveToken":"d95a313b-4ba9-49b1-aca0-53c1f1bd16a4","posicao":"2","situacao":"Pronto para envio ou consulta"}

@@ -5,6 +5,7 @@ namespace NFePHP\Esfinge;
 use InvalidArgumentException;
 use NFePHP\Esfinge\Response;
 use NFePHP\Esfinge\Base;
+use NFePHP\Esfinge\Soap\CurlSoap;
 
 class Tools extends Base
 {
@@ -44,9 +45,6 @@ class Tools extends Base
 
     public function __construct($configJson = '')
     {
-        if (empty($configJson)) {
-            return;
-        }
         parent::__construct($configJson);
     }
     
@@ -57,6 +55,13 @@ class Tools extends Base
      */
     public function setCompetencia($aaaabb)
     {
+        if (!is_numeric($aaaabb)) {
+            throw new InvalidArgumentException('O periodo de competência é uma informação APENAS numérica.');
+        }
+        $bm = intval(substr($aaaabb, -2));
+        if ($bm > 6 || $bm <= 0) {
+            throw new InvalidArgumentException('O bimestre pode ser de 01 até 06 APENAS.');
+        }
         $this->competencia = $aaaabb;
     }
     
@@ -87,53 +92,64 @@ class Tools extends Base
         switch ($method) {
             case 'C':
                 //cancela as operações realizadas com um determinado token
-                //se OK o token é removido e todas as operações com ele 
+                //se OK o token é removido e todas as operações com ele
                 //realizadas são descartadas
                 $x = 'http://token.ws.tce.sc.gov.br/FilaAcesso/cancelarTransferencia';
                 $met = 'cancelarTransferencia';
                 $body = "<cancelarTransferencia xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</cancelarTransferencia>";
-                $retorno = file_get_contents('../tests/fixtures/respcanctoken.xml');
+                $retorno = file_get_contents('../tests/fixtures/responseCancelarTransferencia.xml');
                 //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
-                //$this->token = '';
+                if ($resp['bStat']) {
+                    $this->tokenid = '';
+                    $this->flagIniciar = false;
+                }
                 break;
             case 'F':
                 $met = 'finalizarTransferencia';
                 $body = "<finalizarTransferencia xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</finalizarTransferencia>";
-                $retorno = file_get_contents('../tests/fixtures/respfintransftoken.xml');
+                $retorno = file_get_contents('../tests/fixtures/responseFinalizarTransferencia.xml');
                 //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
-                //$this->token = '';
+                if ($resp['bStat']) {
+                    $this->tokenid = '';
+                    $this->flagIniciar = false;
+                }
                 break;
             case 'I':
                 $met = 'iniciarTransferencia';
                 $body = "<iniciarTransferencia xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</iniciarTransferencia>";
-                $retorno = file_get_contents('../tests/fixtures/respiniciotransfertoken.xml');
+                $retorno = file_get_contents('../tests/fixtures/responseIniciarTransferencia.xml');
                 //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
+                if ($resp['bStat']) {
+                    $this->flagIniciar = true;
+                }
                 break;
             case 'O':
                 $met = 'obterToken';
                 $body = "<obterToken xmlns=\"$namespace\">"
                     . "<codigoUg>$this->codigoUnidadeGestora</codigoUg>"
                     . "</obterToken>";
-                $retorno = file_get_contents('../tests/fixtures/respgettoken.xml');
+                $retorno = file_get_contents('../tests/fixtures/responseObterToken.xml');
                 //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
-                //$this->token = $retorno['token'];
+                if ($resp['bStat'] && $resp['chaveToken'] != '') {
+                    $this->tokenid = $resp['chaveToken'];
+                }
                 break;
             case 'S':
                 $met = 'obterSituacaoToken';
                 $body = "<obterSituacaoToken xmlns=\"$namespace\">"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</obterSituacaoToken>";
-                $retorno = file_get_contents('../tests/fixtures/respsittoken.xml');
+                $retorno = file_get_contents('../tests/fixtures/responseObterSituacaoToken.xml');
                 //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 break;
@@ -166,7 +182,7 @@ class Tools extends Base
             $msg .= $this->buildMsgB($method, $data);
             //envia a mensagem via cURL
             $retorno = $this->envia($msg, $body, $method);
-            $resp =  Response::readReturn($met, $retorno);    
+            $resp =  Response::readReturn($met, $retorno);
             //se sucesso
             $this->token('F');
         }
@@ -177,7 +193,7 @@ class Tools extends Base
      * @param array $data
      * @param string $method
      * @return array
-     */    
+     */
     public function situacaoServidorFolhaPagamento($data = array(), $method = 'L')
     {
         $uri = 'situacaoServidorFolhaPagamentoWS';
@@ -196,7 +212,7 @@ class Tools extends Base
      * @param array $data
      * @param string $method
      * @return array
-     */    
+     */
     public function componentesFolhaPagamento($data = array(), $method = 'L')
     {
         $uri = 'componentesFolhaPagamentoWS';

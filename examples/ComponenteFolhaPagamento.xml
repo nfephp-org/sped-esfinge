@@ -1,0 +1,40 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
+    <soapenv:Header>
+        <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="bdd37199-830a-4c82-a9da-8b24159d63c9">
+                <wsse:Username>CODIGOACESSO</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123456</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soapenv:Header>
+    <soapenv:Body>
+        <com:enviar>
+            <chaveToken>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</chaveToken>
+            <competencia>201601</competencia>
+            <componentesFolhaPagamento>
+                <codigoComponente>1</codigoComponente>
+                <anoMesComponente>201605</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VENCIMENTO (XX)</descricaoComponente>
+                <baseLegalComponente>LEI MUNICIPAL N xxx</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <codigoComponente>2</codigoComponente>
+                <anoMesComponente>201605</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VENCIMENTO (YY)</descricaoComponente>
+                <baseLegalComponente>LEI MUNICIPAL N xxx</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <codigoComponente>3</codigoComponente>
+                <anoMesComponente>201605</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VENCIMENTO (INSS)</descricaoComponente>
+                <baseLegalComponente>LEI MUNICIPAL N xxx</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+        </com:enviar>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -124,8 +124,8 @@ class CurlSoap
         //    "Content-length: $tamanho");
         //"application/fastinfoset, */*"
         //"Accept-Encoding", "gzip, deflate"
-	//"Content-encoding", "gzip"
-	//"Content-type", "application/octet-stream"
+    //"Content-encoding", "gzip"
+    //"Content-type", "application/octet-stream"
         $parametros = array(
             'Content-Type: application/octet-stream',
             'Accept-Encoding: gzip, deflate',
@@ -133,7 +133,7 @@ class CurlSoap
             'SOAPAction: "'.$method.'"',
             "Content-length: $tamanho");
         //solicita comunicação via cURL
-        $resposta = $this->zCommCurl($urlservice, $data, $parametros);
+        //$resposta = $this->zCommCurl($urlservice, $data, $parametros);
         if (empty($resposta)) {
             $msg = "Não houve retorno do Curl.\n $this->errorCurl";
             throw new RuntimeException($msg);
