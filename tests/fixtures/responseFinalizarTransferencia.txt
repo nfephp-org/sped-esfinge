@@ -1,1 +1,1 @@
-{"bStat":true,"message":"Finalizada com sucesso"}
+{"bStat":true,"message":"Finalizada com sucesso","status":"OK"}

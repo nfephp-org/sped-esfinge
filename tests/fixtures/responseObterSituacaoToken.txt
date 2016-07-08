@@ -1,1 +1,1 @@
-{"bStat":true,"message":"Situa\u00e7\u00e3o token obtida com sucesso","posicao":"1","situacao":"Pronto para envio ou consulta"}
+{"bStat":true,"message":"Situa\u00e7\u00e3o token obtida com sucesso","status":"OK","posicao":"1","situacao":"Pronto para envio ou consulta"}

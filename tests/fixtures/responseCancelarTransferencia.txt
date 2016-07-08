@@ -1,1 +1,1 @@
-{"bStat":true,"message":"Cancelada com sucesso"}
+{"bStat":true,"message":"Cancelada com sucesso","status":"OK"}

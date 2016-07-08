@@ -193,7 +193,7 @@ class Base
     protected function buildEnviarB($key, $data)
     {
         if (count($data) > 5000) {
-            return;
+            throw new InvalidArgumentException('O limite de 5000 dados foi ultrapassado.');
         }
         $msg = '';
         foreach ($data as $field) {
@@ -263,7 +263,7 @@ class Base
     /**
      * Constroi o header da mensagem SOAP
      */
-    protected function buildHeader()
+    protected function buildSoapHeader()
     {
         $this->header = "<wsse:Security "
             . "xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" "
@@ -289,25 +289,20 @@ class Base
      * @param string $method
      * @return string
      */
-    protected function envia($urlService, $body, $method)
+    protected function envia($uri, $namespace, $data, $method, $met)
     {
+        //constroi a mensagem
+        $body = $this->buildMsgH($method, $namespace);
+        $body .= $this->buildMsgB($method, $data);
+        
         try {
-            //obter token
-            //iniciar tranferencia
-            
-            
-            $retorno = $this->oSoap->send($urlService, '', '', $body, $this->xmlns.$method);
-            //finalizar transferencia
+            $retorno = $this->oSoap->send($uri, '', '', $body, $this->xmlns.$method);
         } catch (RuntimeException $e) {
             $msg = $this->oSoap->infoCurl['http_code'] . ' - ' . $this->oSoap->errorCurl;
             throw new RuntimeException($msg);
         }
-        $aRet = [
-            'retorno'=>$retorno,
-            'lastMsg' => $this->oSoap->lastMsg,
-            'soapDebug' => $this->oSoap->soapDebug
-        ];
-        return $aRet;
+        $resp = Response::readReturn($met, $retorno);
+        //salvar os arquivos para LOG
     }
     
     /**
