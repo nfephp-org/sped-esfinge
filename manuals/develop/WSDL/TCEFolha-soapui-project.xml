@@ -209,7 +209,7 @@
       <soap:address location="https://desenv2.tce.sc.gov.br:7443/esfinge/services/folhaPagamentoWS"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/folhaPagamentoWS</con:endpoint></con:endpoints><con:operation id="f86e54e8-1726-420b-a33c-a8b5f10686e6" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a58dfe3-73a7-4c83-9839-cd4fd91de0d5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/folhaPagamentoWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fol="http://folhapagamento.ws.tce.sc.gov.br/">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://u2:8088/mockFolhaPagamentoWSImplServiceSoapBinding</con:endpoint><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/folhaPagamentoWS</con:endpoint></con:endpoints><con:operation id="f86e54e8-1726-420b-a33c-a8b5f10686e6" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a58dfe3-73a7-4c83-9839-cd4fd91de0d5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/folhaPagamentoWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fol="http://folhapagamento.ws.tce.sc.gov.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <fol:enviar>
@@ -258,4 +258,48 @@
          </filtros>
       </fol:listar>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://folhapagamento.ws.tce.sc.gov.br/FolhaPagamento/listar"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://folhapagamento.ws.tce.sc.gov.br/FolhaPagamento/listar"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="9fcfb2fc-82f5-42c7-82ca-e1b238e0f826" port="8088" path="/mockFolhaPagamentoWSImplServiceSoapBinding" host="u2" name="FolhaPagamentoWSImplServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="enviar" id="ceb24da5-b808-4d12-ae89-689737cc6fd4" interface="FolhaPagamentoWSImplServiceSoapBinding" operation="enviar"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="63b2dfc6-1e64-44e4-bd2d-aa0c11fc0b72" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fol="http://folhapagamento.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <fol:enviarResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </fol:enviarResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://folhapagamento.ws.tce.sc.gov.br/FolhaPagamento/enviarResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="listar" id="23dda0df-9e60-429e-9d74-a574c2402eab" interface="FolhaPagamentoWSImplServiceSoapBinding" operation="listar"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="d8ffca54-464a-4f18-af6f-db304ceba10f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fol="http://folhapagamento.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <fol:listarResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </fol:listarResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://folhapagamento.ws.tce.sc.gov.br/FolhaPagamento/listarResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

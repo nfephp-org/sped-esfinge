@@ -240,7 +240,7 @@
       <soap:address location="https://desenv2.tce.sc.gov.br:7443/esfinge/services/servidorWS"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/servidorWS</con:endpoint></con:endpoints><con:operation id="47cd854d-ab4d-4cf8-8ff2-6c2408efdaf1" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7a889719-e4b6-49dc-a654-3a0538941ce4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/servidorWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.tce.sc.gov.br/">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://u2:8088/mockServidorWSImplServiceSoapBinding</con:endpoint><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/servidorWS</con:endpoint></con:endpoints><con:operation id="47cd854d-ab4d-4cf8-8ff2-6c2408efdaf1" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7a889719-e4b6-49dc-a654-3a0538941ce4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/servidorWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.tce.sc.gov.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ser:enviar>
@@ -298,4 +298,48 @@
          </filtros>
       </ser:listar>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servidor.ws.tce.sc.gov.br/Servidor/listar"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servidor.ws.tce.sc.gov.br/Servidor/listar"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="dd6d54bc-e00c-4014-b3df-4dfe3d000ef6" port="8088" path="/mockServidorWSImplServiceSoapBinding" host="u2" name="ServidorWSImplServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="enviar" id="eea1cec9-be9c-4d73-8819-ab390461262d" interface="ServidorWSImplServiceSoapBinding" operation="enviar"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="046d4ff3-4285-4821-a967-0d7578134402" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:enviarResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </ser:enviarResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servidor.ws.tce.sc.gov.br/Servidor/enviarResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="listar" id="05905fed-95ca-4341-8af1-7243bf026b6b" interface="ServidorWSImplServiceSoapBinding" operation="listar"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="535e339f-e18f-4e45-afeb-ea6e71f38463" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:listarResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </ser:listarResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servidor.ws.tce.sc.gov.br/Servidor/listarResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

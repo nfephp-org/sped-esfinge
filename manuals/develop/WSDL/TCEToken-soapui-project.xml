@@ -218,11 +218,18 @@
       <soap:address location="https://desenv2.tce.sc.gov.br:7443/esfinge/services/tokenWS"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/tokenWS</con:endpoint></con:endpoints><con:operation id="6de35c9f-e048-4d89-9ad3-2c45cda05729" isOneWay="false" action="" name="cancelarTransferencia" bindingOperationName="cancelarTransferencia" type="Request-Response" outputName="cancelarTransferenciaResponse" inputName="cancelarTransferencia" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f17ca8dc-6d2c-4100-8dc0-28801ef8b627" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
-   <soapenv:Header/>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://u2:8088/mockTokenWSImplServiceSoapBinding</con:endpoint><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/tokenWS</con:endpoint></con:endpoints><con:operation id="6de35c9f-e048-4d89-9ad3-2c45cda05729" isOneWay="false" action="" name="cancelarTransferencia" bindingOperationName="cancelarTransferencia" type="Request-Response" outputName="cancelarTransferenciaResponse" inputName="cancelarTransferencia" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f17ca8dc-6d2c-4100-8dc0-28801ef8b627" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header>
+          <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+           <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+               <wsse:Username>53630556949</wsse:Username>
+               <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">Sarita123</wsse:Password>
+           </wsse:UsernameToken>
+       </wsse:Security>
+   </soapenv:Header>	
    <soapenv:Body>
       <tok:cancelarTransferencia>
-         <chaveToken>?</chaveToken>
+         <chaveToken>5ba1b624-bf49-4ebb-a1f9-fbfec013bd85</chaveToken>
       </tok:cancelarTransferencia>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/cancelarTransferencia"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a089802b-7ce4-49d2-98d4-5936ed95353a" isOneWay="false" action="" name="finalizarTransferencia" bindingOperationName="finalizarTransferencia" type="Request-Response" outputName="finalizarTransferenciaResponse" inputName="finalizarTransferencia" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f42267c0-04d0-49b2-8e73-0837493b71ae" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
@@ -246,11 +253,161 @@
          <chaveToken>?</chaveToken>
       </tok:obterSituacaoToken>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterSituacaoToken"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c2738a92-cdfb-453b-9bbf-1e6b3196932a" isOneWay="false" action="" name="obterToken" bindingOperationName="obterToken" type="Request-Response" outputName="obterTokenResponse" inputName="obterToken" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="69799bee-90c3-416b-97bb-023bf800f205" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterSituacaoToken"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c2738a92-cdfb-453b-9bbf-1e6b3196932a" isOneWay="false" action="" name="obterToken" bindingOperationName="obterToken" type="Request-Response" outputName="obterTokenResponse" inputName="obterToken" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="69799bee-90c3-416b-97bb-023bf800f205" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+                <wsse:Username>53630556949</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123456</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security></soapenv:Header>
+   <soapenv:Body>
+        <tok:obterToken xmlns="http://token.ws.tce.sc.gov.br/">
+            <codigoUg xmlns="">?</codigoUg>
+      </tok:obterToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterToken"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="f2aa33c5-67ee-4b4f-a117-f2c999815955" name="TokenWSImplServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="907c5587-e95d-48fc-aaf8-d7b85ec64f65" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="cancelarTransferencia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e33cc07d-d4e0-4b3d-afaa-b6b61c4c8e3f" name="cancelarTransferencia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TokenWSImplServiceSoapBinding</con:interface><con:operation>cancelarTransferencia</con:operation><con:request name="cancelarTransferencia" id="b2c1ae0c-bd57-4d60-be39-125453a30973"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://u2:8088/mockTokenWSImplServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:cancelarTransferencia>
+         <chaveToken>?</chaveToken>
+      </tok:cancelarTransferencia>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://token.ws.tce.sc.gov.br/FilaAcesso/cancelarTransferencia"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ebd31ded-eee1-4bef-811f-deaed1b1c7b4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="finalizarTransferencia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="61f18942-4bc5-4844-8f78-a08b89d636ba" name="finalizarTransferencia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TokenWSImplServiceSoapBinding</con:interface><con:operation>finalizarTransferencia</con:operation><con:request name="finalizarTransferencia" id="c5fef0f2-cc18-4367-8557-857209a78587"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://u2:8088/mockTokenWSImplServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:finalizarTransferencia>
+         <chaveToken>?</chaveToken>
+      </tok:finalizarTransferencia>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://token.ws.tce.sc.gov.br/FilaAcesso/finalizarTransferencia"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0b7ab478-919c-4910-af91-360d155cd324" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="iniciarTransferencia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="6695c6a3-3433-4717-bb96-0ae4204b02c5" name="iniciarTransferencia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TokenWSImplServiceSoapBinding</con:interface><con:operation>iniciarTransferencia</con:operation><con:request name="iniciarTransferencia" id="4661f4cf-f445-460a-9db3-28be10c10065"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://u2:8088/mockTokenWSImplServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:iniciarTransferencia>
+         <chaveToken>?</chaveToken>
+      </tok:iniciarTransferencia>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://token.ws.tce.sc.gov.br/FilaAcesso/iniciarTransferencia"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="edf6e142-953f-4661-8983-2bf5cc3fbbec" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="obterSituacaoToken TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f1821a65-1d87-447c-8868-b20c254256a4" name="obterSituacaoToken"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TokenWSImplServiceSoapBinding</con:interface><con:operation>obterSituacaoToken</con:operation><con:request name="obterSituacaoToken" id="335fdfe7-41b7-4835-8e77-63e1cff32a88"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://u2:8088/mockTokenWSImplServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:obterSituacaoToken>
+         <chaveToken>?</chaveToken>
+      </tok:obterSituacaoToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterSituacaoToken"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d18e6056-20e3-40ee-a2fd-a529675d9558" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="obterToken TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0b4d1686-4c3b-4aba-bdfa-8244f50efb9d" name="obterToken"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TokenWSImplServiceSoapBinding</con:interface><con:operation>obterToken</con:operation><con:request name="obterToken" id="a6e66ad2-ddea-4cfa-8b1c-0eb0017a326b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://u2:8088/mockTokenWSImplServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <tok:obterToken>
          <codigoUg>?</codigoUg>
       </tok:obterToken>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterToken"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterToken"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="a931f30c-b1f3-429c-a37b-00fb390a8d4e" port="8088" path="/mockTokenWSImplServiceSoapBinding" host="u2" name="TokenWSImplServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="cancelarTransferencia" id="689029f8-380b-4dc6-801c-b8bd8bab683d" interface="TokenWSImplServiceSoapBinding" operation="cancelarTransferencia"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="5720d47d-87ed-4602-91fc-2b7c2f08cdbf" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:cancelarTransferenciaResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </tok:cancelarTransferenciaResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/cancelarTransferenciaResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="finalizarTransferencia" id="bfdb76eb-dc2d-43c7-bffd-2cbc7b9cacab" interface="TokenWSImplServiceSoapBinding" operation="finalizarTransferencia"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="846e64ba-3470-4e3d-8aeb-9808a160f4d6" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:finalizarTransferenciaResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </tok:finalizarTransferenciaResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/finalizarTransferenciaResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="iniciarTransferencia" id="7ae26091-3d27-433a-a9d4-b074cb02422c" interface="TokenWSImplServiceSoapBinding" operation="iniciarTransferencia"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="557aea25-1802-4908-a96c-c7ea66c135c8" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:iniciarTransferenciaResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </tok:iniciarTransferenciaResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/iniciarTransferenciaResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="obterSituacaoToken" id="2b6f5cf8-47ad-4baf-a09c-8de1d51e95c3" interface="TokenWSImplServiceSoapBinding" operation="obterSituacaoToken"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="23187019-f57a-4e55-a747-b8a0ce961877" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:obterSituacaoTokenResponse>
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </tok:obterSituacaoTokenResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterSituacaoTokenResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="obterToken" id="f31dc84b-4bfb-4f43-96cf-33f24143a9b1" interface="TokenWSImplServiceSoapBinding" operation="obterToken"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="bfec8679-4b57-4eb3-bfc4-f64fa69fd589" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:obterTokenResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </tok:obterTokenResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterTokenResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

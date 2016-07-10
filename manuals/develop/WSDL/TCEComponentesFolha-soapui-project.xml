@@ -201,7 +201,7 @@
       <soap:address location="https://desenv2.tce.sc.gov.br:7443/esfinge/services/componentesFolhaPagamentoWS"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/componentesFolhaPagamentoWS</con:endpoint></con:endpoints><con:operation id="be54edbf-ff99-4e66-9ae2-803f8d658a5c" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f5e26030-b6d5-4a19-919a-9fc18cef5095" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/componentesFolhaPagamentoWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://u2:8088/mockComponentesFolhaPagamentoWSImplServiceSoapBinding</con:endpoint><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/componentesFolhaPagamentoWS</con:endpoint></con:endpoints><con:operation id="be54edbf-ff99-4e66-9ae2-803f8d658a5c" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f5e26030-b6d5-4a19-919a-9fc18cef5095" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://desenv2.tce.sc.gov.br:7443/esfinge/services/componentesFolhaPagamentoWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <com:enviar>
@@ -249,4 +249,48 @@
          </filtros>
       </com:listar>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://componentesfolhapagamento.ws.tce.sc.gov.br/ComponentesFolhaPagamento/listar"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://componentesfolhapagamento.ws.tce.sc.gov.br/ComponentesFolhaPagamento/listar"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="9b2f02d1-68af-4282-8f0e-d223a9605bad" port="8088" path="/mockComponentesFolhaPagamentoWSImplServiceSoapBinding" host="u2" name="ComponentesFolhaPagamentoWSImplServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="enviar" id="f83c5aaf-5c39-4e25-aebf-414617e344b2" interface="ComponentesFolhaPagamentoWSImplServiceSoapBinding" operation="enviar"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="f6c35007-41ec-4af2-8465-ac311e6dc98c" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <com:enviarResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </com:enviarResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://componentesfolhapagamento.ws.tce.sc.gov.br/ComponentesFolhaPagamento/enviarResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="listar" id="39956aaa-17d9-4e33-9332-deb6974a80da" interface="ComponentesFolhaPagamentoWSImplServiceSoapBinding" operation="listar"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="a22e02b4-6283-4ca9-8068-65eae08aab9e" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <com:listarResponse>
+         <!--Optional:-->
+         <return>
+            <dados>
+               <!--Zero or more repetitions:-->
+               <entry>
+                  <!--Optional:-->
+                  <key>?</key>
+                  <!--Optional:-->
+                  <value>?</value>
+               </entry>
+            </dados>
+            <!--Optional:-->
+            <mensagem>?</mensagem>
+            <!--Optional:-->
+            <status>?</status>
+         </return>
+      </com:listarResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://componentesfolhapagamento.ws.tce.sc.gov.br/ComponentesFolhaPagamento/listarResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

@@ -3,6 +3,7 @@
 namespace NFePHP\Esfinge\Soap;
 
 use RuntimeException;
+use NFePHP\Esfinge\Files\FilesFolders;
 
 class CurlSoap
 {
@@ -52,9 +53,11 @@ class CurlSoap
      * @var string
      */
     private $proxyPASS = '';
+    private $pathlog;
     
-    public function __construct($timeout, $aproxy)
+    public function __construct($pathlog, $timeout, $aproxy)
     {
+        $this->pathlog = $pathlog;
         $this->soapTimeout = $timeout;
         $ipNumber = $aproxy['proxyIp'];
         $port = $aproxy['proxyPort'];
@@ -107,14 +110,25 @@ class CurlSoap
     {
         //monta a mensagem ao webservice
         $data = '<?xml version="1.0" encoding="utf-8"?>'.'<soap:Envelope ';
-        $data .= 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ';
-        $data .= 'xmlns:xsd="http://www.w3.org/2001/XMLSchema" ';
-        $data .= 'xmlns:soap="http://www.w3.org/2003/05/soap-envelope">';
+        //$data .= 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ';
+        //$data .= 'xmlns:xsd="http://www.w3.org/2001/XMLSchema" ';
+        //$data .= 'xmlns:soap="http://www.w3.org/2003/05/soap-envelope">';
+        $data .= 'xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" ';
+        $data .= 'xmlns:svc="'.$namespace.'">';
+        //$data .= 'xmlns:ser="http://servidor.ws.tce.sc.gov.br/" >';
         $data .= '<soap:Header>'.$header.'</soap:Header>';
         $data .= '<soap:Body>'.$body.'</soap:Body>';
         $data .= '</soap:Envelope>';
         $data = $this->clearMsg($data);
+        
+        //grava em propriedade da classe o envelope não compactado
         $this->lastMsg = $data;
+        //salva o envelope em arquivo para efeito de LOG
+        $mark = date('Ym').DIRECTORY_SEPARATOR.date('d_His_').$method;
+        $filepath = $mark.'.xml';
+        FilesFolders::save($this->pathlog, $filepath, $data);
+        //compacta mensagem com GZip
+        //$zipdata = gzencode($data);
         //tamanho da mensagem
         $tamanho = strlen($data);
         //estabelecimento dos parametros da mensagem
@@ -127,14 +141,17 @@ class CurlSoap
     //"Content-encoding", "gzip"
     //"Content-type", "application/octet-stream"
         $parametros = array(
-            'Content-Type: application/octet-stream',
             'Accept-Encoding: gzip, deflate',
-            'Content-encoding: gzip',
-            'SOAPAction: "'.$method.'"',
+            'Content-Type: text/xml;charset=UTF-8',
+            //'Content-Type: application/octet-stream',
+            
+            //'Content-encoding: gzip',
+            //'SOAPAction: ""',
             "Content-length: $tamanho");
         //solicita comunicação via cURL
         //###########################################
         //
+        $resposta = '';
         if ($method == 'cancelarTransferencia') {
             $resposta = file_get_contents('../tests/fixtures/responseCancelarTransferencia.xml');
         }
@@ -145,33 +162,38 @@ class CurlSoap
             $resposta = file_get_contents('../tests/fixtures/responseIniciarTransferencia.xml');
         }
         if ($method == 'obterToken') {
-            $resposta = file_get_contents('../tests/fixtures/responseObterToken.xml');
+        //    $resposta = file_get_contents('../tests/fixtures/responseObterToken.xml');
         }
         if ($method == 'obterSituacaoToken') {
             $resposta = file_get_contents('../tests/fixtures/responseObterSituacaoToken.xml');
         }
         $this->infoCurl["http_code"] = '200';
         //###########################################
-        //$resposta = $this->zCommCurl($urlservice, $data, $parametros);
+        if ($resposta == '') {
+            $resposta = $this->zCommCurl($urlservice, $data, $parametros);
+        }    
         if (empty($resposta)) {
             $msg = "Não houve retorno do Curl.\n $this->errorCurl";
             throw new RuntimeException($msg);
         }
+        
         //obtem o bloco html da resposta
-        $xPos = stripos($resposta, "<");
-        $blocoHtml = substr($resposta, 0, $xPos);
+        $ad = explode("\x1f\x8b", $resposta);
+        $blocoHtml = substr($$ad[0], 0, strlen($ad[0])-2);
+        $compressPart = "\x1f\x8b" . $ad[1];
+        $decompressPart = gzdecode($compressPart);
         if ($this->infoCurl["http_code"] != '200') {
             //se não é igual a 200 houve erro
-            $msg = $blocoHtml;
+            $msg = $blocoHtml ."\r\n". $decompressPart;
+            $filepath = $mark.'_ERROR.log';
+            FilesFolders::save($this->pathlog, $filepath, $data);
             throw new RuntimeException($msg);
         }
-        //obtem o tamanho da resposta
-        $lenresp = strlen($resposta);
         //localiza a primeira marca de tag
-        $xPos = stripos($resposta, "<");
+        $xPos = stripos($decompressPart, "<");
         //se não existir não é um xml nem um html
         if ($xPos !== false) {
-            $xml = substr($resposta, $xPos, $lenresp-$xPos);
+            $xml = substr($decompressPart, $xPos, $lenresp-$xPos);
         } else {
             $xml = '';
         }
@@ -188,6 +210,9 @@ class CurlSoap
         if ($xml != '' && substr($xml, 0, 5) != '<?xml') {
             $xml = '<?xml version="1.0" encoding="utf-8"?>'.$xml;
         }
+        //grava a resposta do TCE/SC
+        $filepath = $mark.'_response.xml';
+        FilesFolders::save($this->pathlog, $filepath, $xml);
         return $xml;
     }
     
@@ -217,6 +242,7 @@ class CurlSoap
         curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
+        //curl_setopt($oCurl, CURLOPT_BINARYTRANSFER, 1);
         curl_setopt($oCurl, CURLOPT_POST, 1);
         curl_setopt($oCurl, CURLOPT_POSTFIELDS, $data);
         if (!empty($parametros)) {
