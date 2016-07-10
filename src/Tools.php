@@ -9,11 +9,11 @@ use NFePHP\Esfinge\Base;
 
 class Tools extends Base
 {
-    const TK_O = 'O';
-    const TK_I = 'I';
-    const TK_F = 'F';
-    const TK_C = 'C';
-    const TK_S = 'S';
+    const TK_Obtem = 'O';
+    const TK_Inicia = 'I';
+    const TK_Finaliza = 'F';
+    const TK_Cancela = 'C';
+    const TK_Status = 'S';
     
     /**
      * Endereços principais dos webservices
@@ -29,23 +29,23 @@ class Tools extends Base
      * BB = bimestre de 01 até 06
      * @var string
      */
-    private $competencia;
+    protected $competencia;
     /**
      * Token de segurança e queue
      * hash com 36 caracteres aleatórios
      * @var string
      */
-    private $tokenid;
+    protected $tokenid;
     /**
      * Flag iniciar tranferencia
      * @var bool
      */
-    private $flagIniciar = false;
+    protected $flagIniciar = false;
     /**
      * Datahora da ultima solicitação da situação do token
      * @var timestramp
      */
-    private $tsLastSitToken;
+    protected $tsLastSitToken;
     
 
     public function __construct($configJson = '')
@@ -89,25 +89,25 @@ class Tools extends Base
      *   S - Verifica a situação do token
      * @param string $method
      */
-    public function token($method = self::TK_O)
+    public function token($method = self::TK_Obtem)
     {
         $uri = $this->url[$this->tpAmb].'/esfinge/services/tokenWS';
         $namespace = 'http://token.ws.tce.sc.gov.br/';
         
         switch ($method) {
-            case 'C':
+            case self::TK_Cancela:
+                //cancela as operações realizadas com um determinado token
+                //se OK o token é removido e todas as operações com ele
+                //realizadas são descartadas
                 if ($this->flagIniciar === false) {
                     //não está iniciada a tranferencia então não dá para cancelar
                     throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser cancelada');
                 }
-                //cancela as operações realizadas com um determinado token
-                //se OK o token é removido e todas as operações com ele
-                //realizadas são descartadas
                 $x = 'http://token.ws.tce.sc.gov.br/FilaAcesso/cancelarTransferencia';
                 $met = 'cancelarTransferencia';
-                $body = "<cancelarTransferencia xmlns=\"$namespace\">"
+                $body = "<svc:cancelarTransferencia>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
-                    . "</cancelarTransferencia>";
+                    . "</svc:cancelarTransferencia>";
                 $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
@@ -115,19 +115,19 @@ class Tools extends Base
                     $this->flagIniciar = false;
                 }
                 break;
-            case 'F':
-                if ($this->flagIniciar === false) {
-                    //não está iniciada a tranferencia então não dá para finalizar
-                    throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser finalizada');
-                }
+            case self::TK_Finaliza:
                 //Ao final da transferência caso queria confirmar todos os elementos inseridos
                 //(que não retornaram erro) nesta sessão, ou seja todos os elementos ligados a
                 //determinado token passado para o serviço. Uma vez executado este serviço
                 //o token atual será descartado.
+                if ($this->flagIniciar === false) {
+                    //não está iniciada a tranferencia então não dá para finalizar
+                    throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser finalizada');
+                }
                 $met = 'finalizarTransferencia';
-                $body = "<finalizarTransferencia xmlns=\"$namespace\">"
+                $body = "<svc:finalizarTransferencia>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
-                    . "</finalizarTransferencia>";
+                    . "</svc:finalizarTransferencia>";
                 $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
@@ -135,7 +135,9 @@ class Tools extends Base
                     $this->flagIniciar = false;
                 }
                 break;
-            case 'I':
+            case self::TK_Inicia:
+                //Antes de iniciar a transferência dos dados propriamente dita, será necessário executar
+                //o serviço iniciarTransferencia
                 if ($this->tokenid == '') {
                     //não é possivel iniciar sem um token valido
                     throw new RuntimeException('Não é possivel iniciar a tranferência sem um token valido');
@@ -149,19 +151,19 @@ class Tools extends Base
                     ];
                     break;
                 }
-                //Antes de iniciar a transferência dos dados propriamente dita será necessário executar
-                //o serviço iniciarTransferencia
                 $met = 'iniciarTransferencia';
-                $body = "<iniciarTransferencia xmlns=\"$namespace\">"
+                $body = "<svc:iniciarTransferencia>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
-                    . "</iniciarTransferencia>";
+                    . "</svc:iniciarTransferencia>";
                 $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
                     $this->flagIniciar = true;
                 }
                 break;
-            case 'O':
+            case self::TK_Obtem:
+                //Retorna um token para a unidade gestora poder usar o serviço do TCE.
+                //Permite somente um token por unidade gestora.
                 if ($this->tokenid != '') {
                     $resp = [
                         'bStat' => true,
@@ -174,16 +176,16 @@ class Tools extends Base
                     break;
                 }
                 $met = 'obterToken';
-                $body = "<obterToken xmlns=\"$namespace\">"
+                $body = "<svc:obterToken>"
                     . "<codigoUg>$this->codigoUnidadeGestora</codigoUg>"
-                    . "</obterToken>";
+                    . "</svc:obterToken>";
                 $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat'] && $resp['chaveToken'] != '') {
                     $this->tokenid = $resp['chaveToken'];
                 }
                 break;
-            case 'S':
+            case self::TK_Status:
                 //Retorna a situação do token passado como parâmetro. Para evitar solicitações
                 //indefinidas a este serviço o sistema punirá com a remoção do token da fila
                 //sempre que for feita duas chamadas seguidas do serviço obterSituacaoToken
@@ -205,9 +207,9 @@ class Tools extends Base
                     break;
                 }
                 $met = 'obterSituacaoToken';
-                $body = "<obterSituacaoToken xmlns=\"$namespace\">"
+                $body = "<svc:obterSituacaoToken>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
-                    . "</obterSituacaoToken>";
+                    . "</svc:obterSituacaoToken>";
                 $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 $this->tsLastSitToken = time();
@@ -216,17 +218,22 @@ class Tools extends Base
         return $resp;
     }
     
+    /**
+     * Inicia o processo de tranferência de dados
+     * @param array $data
+     * @throws InvalidArgumentException
+     * @throws RuntimeException
+     */
     protected function obterTokenIniciarTransferencia($data = array())
     {
         if (empty($data)) {
             throw new InvalidArgumentException('Não foram passados dados para o método');
         }
-        $this->token(self::TK_O);
-        $this->token(self::TK_I);
+        $this->token(self::TK_Obtem);
+        $this->token(self::TK_Inicia);
         if ($this->tokenid == '' || $this->flagIniciar === false) {
             throw new RuntimeException("Falha token:$this->tokenid , Iniciar: $this->flagIniciar");
         }
-        $this->buildSoapHeader();
     }
 
     /**

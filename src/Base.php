@@ -94,6 +94,7 @@ class Base
         $this->setAmbiente($this->aConfig['tpAmb']);
         $this->pathFiles = $this->aConfig['pathFiles'];
         $this->loadSoapClass();
+        $this->buildSoapHeader();
     }
     
     /**
@@ -179,7 +180,9 @@ class Base
     {
         $ret = '';
         foreach ($data as $key => $value) {
-            $ret .= "<$key>$value</$key>";
+            if (! empty($value)) {
+                $ret .= "<$key>$value</$key>";
+            }    
         }
         return $ret;
     }
@@ -239,7 +242,7 @@ class Base
         }
         $msg = "<$key xmlns=\"$namespace\">";
         $msg .= $codug;
-        $msg .= "<chaveToken>$this->token</chaveToken>";
+        $msg .= "<chaveToken>$this->tokenid</chaveToken>";
         $msg .= "<competencia>$this->competencia</competencia>";
         return $msg;
     }
@@ -253,6 +256,10 @@ class Base
     protected function buildMsgB($tipo, $data)
     {
         if ($tipo == 'L') {
+            //numerico pagina
+            $pagina = $data['pagina'];
+            //array filtros []['','','','']
+            $filtros = $data['filtros'];
             $msg = $this->buildListarB($pagina, $filtros);
         } elseif ($tipo == 'E') {
             $msg = $this->buildEnviarB($key, $data);
@@ -266,8 +273,7 @@ class Base
     protected function buildSoapHeader()
     {
         $this->header = "<wsse:Security "
-            . "xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" "
-            . "soap:mustUnderstand=\"1\">"
+            . "xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">"
             . "<wsse:UsernameToken "
             . "xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">"
             . "<wsse:Username>"
@@ -294,15 +300,12 @@ class Base
         //constroi a mensagem
         $body = $this->buildMsgH($method, $namespace);
         $body .= $this->buildMsgB($method, $data);
-        
-        try {
-            $retorno = $this->oSoap->send($uri, '', '', $body, $this->xmlns.$method);
-        } catch (RuntimeException $e) {
-            $msg = $this->oSoap->infoCurl['http_code'] . ' - ' . $this->oSoap->errorCurl;
-            throw new RuntimeException($msg);
-        }
+        //envia pelo curl
+        $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $method);
+        //processa o retorno
         $resp = Response::readReturn($met, $retorno);
         //salvar os arquivos para LOG
+        return $resp;
     }
     
     /**
@@ -310,13 +313,13 @@ class Base
      */
     protected function loadSoapClass()
     {
+        $pathlog = $this->pathFiles.DIRECTORY_SEPARATOR.$this->ambiente;
         $this->oSoap = null;
-        //if (! is_object($soap)) {
-            $soap = new CurlSoap(
-                $this->soapTimeout,
-                $this->aProxy
-            );
-        //}
+        $soap = new CurlSoap(
+            $pathlog,    
+            $this->soapTimeout,
+            $this->aProxy
+        );
         $this->oSoap = $soap;
     }
 }
