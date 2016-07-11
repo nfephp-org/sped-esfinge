@@ -11,6 +11,8 @@ try {
     //definir o periodo de competência
     $tools->setCompetencia('201602');
     //Enviar dados servidor
+    //NOTA: deixando o campo em branco '' ele não será incluso no XML
+    //NOTA: não passando o campo ele também não será incluso no XML
     $data[] = [
         'idRetorno' => '1',
         'mensagemProcessamento' => 'sei la',
