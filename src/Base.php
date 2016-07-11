@@ -152,7 +152,7 @@ class Base
         foreach ($data as $key => $value) {
             if (! empty($value)) {
                 $ret .= "<$key>$value</$key>";
-            }    
+            }
         }
         return $ret;
     }
@@ -285,7 +285,7 @@ class Base
         $pathlog = $this->pathFiles.DIRECTORY_SEPARATOR.$this->ambiente;
         $this->oSoap = null;
         $soap = new CurlSoap(
-            $pathlog,    
+            $pathlog,
             $this->soapTimeout,
             $this->aProxy
         );

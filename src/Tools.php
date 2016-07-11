@@ -9,11 +9,11 @@ use NFePHP\Esfinge\Base;
 
 class Tools extends Base
 {
-    const TK_Obtem = 'O';
-    const TK_Inicia = 'I';
-    const TK_Finaliza = 'F';
-    const TK_Cancela = 'C';
-    const TK_Status = 'S';
+    const TK_OBTEM = 'O';
+    const TK_INICIA = 'I';
+    const TK_FINALIZA = 'F';
+    const TK_CANCELA = 'C';
+    const TK_STATUS = 'S';
     
     /**
      * Endereços principais dos webservices
@@ -92,13 +92,13 @@ class Tools extends Base
      *   S - Verifica a situação do token
      * @param string $method
      */
-    public function token($method = self::TK_Obtem)
+    public function token($method = self::TK_OBTEM)
     {
         $uri = $this->url[$this->tpAmb].'/esfinge/services/tokenWS';
         $namespace = 'http://token.ws.tce.sc.gov.br/';
         
         switch ($method) {
-            case self::TK_Cancela:
+            case self::TK_CANCELA:
                 //cancela as operações realizadas com um determinado token
                 //se OK o token é removido e todas as operações com ele
                 //realizadas são descartadas
@@ -118,7 +118,7 @@ class Tools extends Base
                     $this->flagIniciar = false;
                 }
                 break;
-            case self::TK_Finaliza:
+            case self::TK_FINALIZA:
                 //Ao final da transferência caso queria confirmar todos os elementos inseridos
                 //(que não retornaram erro) nesta sessão, ou seja todos os elementos ligados a
                 //determinado token passado para o serviço. Uma vez executado este serviço
@@ -139,7 +139,7 @@ class Tools extends Base
                     $this->flagIniciar = false;
                 }
                 break;
-            case self::TK_Inicia:
+            case self::TK_INICIA:
                 //Antes de iniciar a transferência dos dados propriamente dita, será necessário executar
                 //o serviço iniciarTransferencia
                 if ($this->tokenid == '') {
@@ -165,7 +165,7 @@ class Tools extends Base
                     $this->flagIniciar = true;
                 }
                 break;
-            case self::TK_Obtem:
+            case self::TK_OBTEM:
                 //Retorna um token para a unidade gestora poder usar o serviço do TCE.
                 //Permite somente um token por unidade gestora.
                 if ($this->tokenid != '') {
@@ -189,7 +189,7 @@ class Tools extends Base
                     $this->tokenid = $resp['chaveToken'];
                 }
                 break;
-            case self::TK_Status:
+            case self::TK_STATUS:
                 //Retorna a situação do token passado como parâmetro. Para evitar solicitações
                 //indefinidas a este serviço o sistema punirá com a remoção do token da fila
                 //sempre que for feita duas chamadas seguidas do serviço obterSituacaoToken
@@ -233,8 +233,8 @@ class Tools extends Base
         if (empty($data)) {
             throw new InvalidArgumentException('Não foram passados dados para o método');
         }
-        $this->token(self::TK_Obtem);
-        $this->token(self::TK_Inicia);
+        $this->token(self::TK_OBTEM);
+        $this->token(self::TK_INICIA);
         if ($this->tokenid == '' || $this->flagIniciar === false) {
             throw new RuntimeException("Falha token:$this->tokenid , Iniciar: $this->flagIniciar");
         }
@@ -242,6 +242,8 @@ class Tools extends Base
 
     /**
      * Servidor
+     *  se ainda não tiver o TOKEN -> Obtem  (automático)
+     *  se ainda não tiver iniciado -> inicia (automático)
      * @param array $data
      * @param string $method
      * @return array
@@ -259,6 +261,8 @@ class Tools extends Base
     
     /**
      * Situação Servidor Folha Pagamento
+     *  se ainda não tiver o TOKEN -> Obtem  (automático)
+     *  se ainda não tiver iniciado -> inicia (automático)
      * @param array $data
      * @param string $method
      * @return array
@@ -275,6 +279,8 @@ class Tools extends Base
 
     /**
      * Componentes Folha Pagamento
+     *  se ainda não tiver o TOKEN -> Obtem  (automático)
+     *  se ainda não tiver iniciado -> inicia (automático)
      * @param array $data
      * @param string $method
      * @return array
@@ -291,6 +297,8 @@ class Tools extends Base
 
     /**
      * Folha Pagamento
+     *  se ainda não tiver o TOKEN -> Obtem  (automático)
+     *  se ainda não tiver iniciado -> inicia (automático)
      * @param array $data
      * @param string $method
      * @return array
