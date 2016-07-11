@@ -21,16 +21,6 @@ print_r($retorno);
 echo '</pre>';
 echo '<BR>';
 
-//cancelar
-$retorno = $tools->token($tools::TK_CANCELA);
-echo '<pre>';
-print_r($retorno);
-echo '</pre>';
-echo '<BR>';
-die;
-
-
-
 //finalizar
 $retorno = $tools->token($tools::TK_FINALIZA);
 echo '<pre>';
@@ -47,7 +37,7 @@ echo '<pre>';
 print_r($retorno);
 echo '</pre>';
 echo '<BR>';
-die;
+
 //obter para poder verificar
 $retorno = $tools->token($tools::TK_OBTEM);
 //verificar situação do token
@@ -62,7 +52,3 @@ echo '<pre>';
 print_r($retorno);
 echo '</pre>';
 echo '<BR>';
-
-
-
-
