@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="70df8f3f-5313-4458-b685-2dc6028e509c" activeEnvironment="Default" name="TCE_servidor" resourceRoot="${projectDir}" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1ba31ad3-a651-4912-b321-b0f464e31cae" wsaVersion="NONE" name="ServidorWSImplServiceSoapBinding" type="wsdl" bindingName="{http://servidor.ws.tce.sc.gov.br/}ServidorWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="servidorWS.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/var/www/sped/sped-esfinge/manuals/production/WSDL/servidorWS.xml"><con:part><con:url>file:/var/www/sped/sped-esfinge/manuals/production/WSDL/servidorWS.xml</con:url><con:content><![CDATA[<wsdl:definitions name="ServidorWSImplService" targetNamespace="http://servidor.ws.tce.sc.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://servidor.ws.tce.sc.gov.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servidor.ws.tce.sc.gov.br/">
+      <xs:element name="item" type="tns:item"/>
+      <xs:element name="enviar" type="tns:enviar"/>
+      <xs:element name="enviarResponse" type="tns:enviarResponse"/>
+      <xs:element name="listar" type="tns:listar"/>
+      <xs:element name="listarResponse" type="tns:listarResponse"/>
+      <xs:element name="servidor" type="tns:servidor"/>
+      <xs:element name="codigoMensagem" type="tns:codigoMensagem"/>
+      <xs:complexType name="item">
+        <xs:all>
+          <xs:element maxOccurs="1" minOccurs="0" name="campo" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="valor" type="xs:anySimpleType"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="tipo" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="tamanho" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="sufixo_operador" type="xs:string"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="codigoMensagem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="responseTCEWS">
+        <xs:sequence>
+          <xs:element name="dados">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="key" type="xs:string"/>
+                      <xs:element minOccurs="0" name="value" type="xs:anyType"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="servidor">
+        <xs:all>
+          <xs:element maxOccurs="1" minOccurs="0" name="idRetorno" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="mensagemProcessamento" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="codigoProcessamento" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="numeroMatricula" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value=".*[A-Z0-9a-z]{1,}.*"/>
+                <xs:minLength value="1"/>
+                <xs:maxLength value="16"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="nomeServidor" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value=".*[A-Z0-9a-z]{1,}.*"/>
+                <xs:minLength value="1"/>
+                <xs:maxLength value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="dataNascimento" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:date">
+                <xs:minInclusive value="1900-01-01"/>
+                <xs:maxInclusive value="2100-12-31"/>
+                <xs:pattern value=".{10}"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="nomeMae" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value=".*[A-Z0-9a-z]{1,}.*"/>
+                <xs:minLength value="1"/>
+                <xs:maxLength value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="nomePai" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="100"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="numeroCPF" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="\d{1,11}"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="numeroRegistroGeral" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="16"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="numeroTituloEleitoral" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="16"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="numeroCertificadoReservista" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="16"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="0" name="numeroPisPasep" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="11"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="codigoSexo" nillable="false">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="99"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="enviar">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="competencia" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="5000" minOccurs="1" name="servidor" nillable="false" type="tns:servidor">
+            <xs:unique name="idRetorno-unico">
+              <xs:selector xpath="servidor"/>
+              <xs:field xpath="idRetorno"/>
+            </xs:unique>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listar">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="codigoUg" nillable="true" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="competencia" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="PAGINA" nillable="false" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="filtros" type="tns:item"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="enviarResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listarResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception"/>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="listarResponse">
+    <wsdl:part element="tns:listarResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enviar">
+    <wsdl:part element="tns:enviar" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enviarResponse">
+    <wsdl:part element="tns:enviarResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listar">
+    <wsdl:part element="tns:listar" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Servidor">
+    <wsdl:operation name="enviar">
+      <wsdl:input message="tns:enviar" name="enviar"></wsdl:input>
+      <wsdl:output message="tns:enviarResponse" name="enviarResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <wsdl:input message="tns:listar" name="listar"></wsdl:input>
+      <wsdl:output message="tns:listarResponse" name="listarResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServidorWSImplServiceSoapBinding" type="tns:Servidor">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="enviar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="enviar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="enviarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServidorWSImplService">
+    <wsdl:port binding="tns:ServidorWSImplServiceSoapBinding" name="ServidorWSImplPort">
+      <soap:address location="https://esfingews.tce.sc.gov.br/esfinge/services/servidorWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/servidorWS</con:endpoint></con:endpoints><con:operation id="baa96779-f6e8-4185-8a84-61bbd029a31f" isOneWay="false" action="" name="enviar" bindingOperationName="enviar" type="Request-Response" outputName="enviarResponse" inputName="enviar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8de3ded4-2f06-4291-8ae6-e8604bcbbc77" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/servidorWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:enviar>
+         <chaveToken>?</chaveToken>
+         <competencia>?</competencia>
+         <!--1 to 5000 repetitions:-->
+         <servidor>
+            <!--You may enter the following 14 items in any order-->
+            <!--Optional:-->
+            <idRetorno>?</idRetorno>
+            <!--Optional:-->
+            <mensagemProcessamento>?</mensagemProcessamento>
+            <!--Optional:-->
+            <codigoProcessamento>?</codigoProcessamento>
+            <numeroMatricula>?</numeroMatricula>
+            <nomeServidor>?</nomeServidor>
+            <dataNascimento>?</dataNascimento>
+            <nomeMae>?</nomeMae>
+            <!--Optional:-->
+            <nomePai>?</nomePai>
+            <numeroCPF>?</numeroCPF>
+            <!--Optional:-->
+            <numeroRegistroGeral>?</numeroRegistroGeral>
+            <!--Optional:-->
+            <numeroTituloEleitoral>?</numeroTituloEleitoral>
+            <!--Optional:-->
+            <numeroCertificadoReservista>?</numeroCertificadoReservista>
+            <!--Optional:-->
+            <numeroPisPasep>?</numeroPisPasep>
+            <codigoSexo>?</codigoSexo>
+         </servidor>
+      </ser:enviar>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servidor.ws.tce.sc.gov.br/Servidor/enviar"/></con:call></con:operation><con:operation id="d80edba4-16d2-47d7-a6e7-9b8b1ca899c0" isOneWay="false" action="" name="listar" bindingOperationName="listar" type="Request-Response" outputName="listarResponse" inputName="listar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b1820827-0e2c-4322-ac8d-8172b46f11cb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/servidorWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:listar>
+         <codigoUg>?</codigoUg>
+         <chaveToken>?</chaveToken>
+         <competencia>?</competencia>
+         <PAGINA>?</PAGINA>
+         <!--Zero or more repetitions:-->
+         <filtros>
+            <!--You may enter the following 5 items in any order-->
+            <!--Optional:-->
+            <campo>?</campo>
+            <!--Optional:-->
+            <valor>?</valor>
+            <!--Optional:-->
+            <tipo>?</tipo>
+            <!--Optional:-->
+            <tamanho>?</tamanho>
+            <!--Optional:-->
+            <sufixo_operador>?</sufixo_operador>
+         </filtros>
+      </ser:listar>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://servidor.ws.tce.sc.gov.br/Servidor/listar"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e7612625-7511-4bc7-9ef9-8183cdaf8a75" activeEnvironment="Default" name="TCE_token" resourceRoot="${projectDir}" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1dbac584-14ee-46a7-9b11-2378ede0294f" wsaVersion="NONE" name="TokenWSImplServiceSoapBinding" type="wsdl" bindingName="{http://token.ws.tce.sc.gov.br/}TokenWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="tokenWS.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/var/www/sped/sped-esfinge/manuals/production/WSDL/tokenWS.xml"><con:part><con:url>file:/var/www/sped/sped-esfinge/manuals/production/WSDL/tokenWS.xml</con:url><con:content><![CDATA[<wsdl:definitions name="TokenWSImplService" targetNamespace="http://token.ws.tce.sc.gov.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://token.ws.tce.sc.gov.br/" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://token.ws.tce.sc.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="cancelarTransferencia" type="tns:cancelarTransferencia"/>
+      <xs:element name="cancelarTransferenciaResponse" type="tns:cancelarTransferenciaResponse"/>
+      <xs:element name="finalizarTransferencia" type="tns:finalizarTransferencia"/>
+      <xs:element name="finalizarTransferenciaResponse" type="tns:finalizarTransferenciaResponse"/>
+      <xs:element name="iniciarTransferencia" type="tns:iniciarTransferencia"/>
+      <xs:element name="iniciarTransferenciaResponse" type="tns:iniciarTransferenciaResponse"/>
+      <xs:element name="obterSituacaoToken" type="tns:obterSituacaoToken"/>
+      <xs:element name="obterSituacaoTokenResponse" type="tns:obterSituacaoTokenResponse"/>
+      <xs:element name="obterToken" type="tns:obterToken"/>
+      <xs:element name="obterTokenResponse" type="tns:obterTokenResponse"/>
+      <xs:complexType name="iniciarTransferencia">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="iniciarTransferenciaResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelarTransferencia">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelarTransferenciaResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="finalizarTransferencia">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="finalizarTransferenciaResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="obterToken">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="codigoUg" nillable="false" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="obterTokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="responseTCEWS">
+        <xs:sequence>
+          <xs:element name="dados">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="key" type="xs:string"/>
+                      <xs:element minOccurs="0" name="value" type="xs:anyType"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="obterSituacaoToken">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="chaveToken" nillable="false" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="obterSituacaoTokenResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="return" nillable="false" type="tns:responseTCEWS"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception"/>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="obterSituacaoTokenResponse">
+    <wsdl:part element="tns:obterSituacaoTokenResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="iniciarTransferencia">
+    <wsdl:part element="tns:iniciarTransferencia" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="finalizarTransferenciaResponse">
+    <wsdl:part element="tns:finalizarTransferenciaResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelarTransferencia">
+    <wsdl:part element="tns:cancelarTransferencia" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="finalizarTransferencia">
+    <wsdl:part element="tns:finalizarTransferencia" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="iniciarTransferenciaResponse">
+    <wsdl:part element="tns:iniciarTransferenciaResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelarTransferenciaResponse">
+    <wsdl:part element="tns:cancelarTransferenciaResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obterToken">
+    <wsdl:part element="tns:obterToken" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obterTokenResponse">
+    <wsdl:part element="tns:obterTokenResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obterSituacaoToken">
+    <wsdl:part element="tns:obterSituacaoToken" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="FilaAcesso">
+    <wsdl:operation name="obterToken">
+      <wsdl:input message="tns:obterToken" name="obterToken"></wsdl:input>
+      <wsdl:output message="tns:obterTokenResponse" name="obterTokenResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="obterSituacaoToken">
+      <wsdl:input message="tns:obterSituacaoToken" name="obterSituacaoToken"></wsdl:input>
+      <wsdl:output message="tns:obterSituacaoTokenResponse" name="obterSituacaoTokenResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="iniciarTransferencia">
+      <wsdl:input message="tns:iniciarTransferencia" name="iniciarTransferencia"></wsdl:input>
+      <wsdl:output message="tns:iniciarTransferenciaResponse" name="iniciarTransferenciaResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarTransferencia">
+      <wsdl:input message="tns:cancelarTransferencia" name="cancelarTransferencia"></wsdl:input>
+      <wsdl:output message="tns:cancelarTransferenciaResponse" name="cancelarTransferenciaResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="finalizarTransferencia">
+      <wsdl:input message="tns:finalizarTransferencia" name="finalizarTransferencia"></wsdl:input>
+      <wsdl:output message="tns:finalizarTransferenciaResponse" name="finalizarTransferenciaResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TokenWSImplServiceSoapBinding" type="tns:FilaAcesso">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="obterToken">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obterToken">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obterTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="obterSituacaoToken">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obterSituacaoToken">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obterSituacaoTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="iniciarTransferencia">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="iniciarTransferencia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="iniciarTransferenciaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarTransferencia">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="cancelarTransferencia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cancelarTransferenciaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="finalizarTransferencia">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="finalizarTransferencia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="finalizarTransferenciaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TokenWSImplService">
+    <wsdl:port binding="tns:TokenWSImplServiceSoapBinding" name="TokenWSImplPort">
+      <soap:address location="https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS</con:endpoint></con:endpoints><con:operation id="69e266d5-32e7-4ffb-b60f-efe1d97dc414" isOneWay="false" action="" name="cancelarTransferencia" bindingOperationName="cancelarTransferencia" type="Request-Response" outputName="cancelarTransferenciaResponse" inputName="cancelarTransferencia" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7ef18aeb-5db2-4b72-933f-556ebc779dbc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:cancelarTransferencia>
+         <chaveToken>?</chaveToken>
+      </tok:cancelarTransferencia>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/cancelarTransferencia"/></con:call></con:operation><con:operation id="bb6e755a-d927-43a3-934c-d60a2f17b237" isOneWay="false" action="" name="finalizarTransferencia" bindingOperationName="finalizarTransferencia" type="Request-Response" outputName="finalizarTransferenciaResponse" inputName="finalizarTransferencia" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3dd67662-9936-41af-a8b2-39185312dc0c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:finalizarTransferencia>
+         <chaveToken>?</chaveToken>
+      </tok:finalizarTransferencia>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/finalizarTransferencia"/></con:call></con:operation><con:operation id="cb9e81ee-8af2-403c-bf5c-1dd15e0aa808" isOneWay="false" action="" name="iniciarTransferencia" bindingOperationName="iniciarTransferencia" type="Request-Response" outputName="iniciarTransferenciaResponse" inputName="iniciarTransferencia" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2e475504-2851-43a3-af7a-7fbb1852a120" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:iniciarTransferencia>
+         <chaveToken>?</chaveToken>
+      </tok:iniciarTransferencia>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/iniciarTransferencia"/></con:call></con:operation><con:operation id="15d11d93-d5da-4062-9892-ef0eca171797" isOneWay="false" action="" name="obterSituacaoToken" bindingOperationName="obterSituacaoToken" type="Request-Response" outputName="obterSituacaoTokenResponse" inputName="obterSituacaoToken" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e8c6b506-b701-43c0-bf2d-e39ba4f87320" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:obterSituacaoToken>
+         <chaveToken>?</chaveToken>
+      </tok:obterSituacaoToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterSituacaoToken"/></con:call></con:operation><con:operation id="cb0b655f-013c-415e-98e0-0cd198ac9dc8" isOneWay="false" action="" name="obterToken" bindingOperationName="obterToken" type="Request-Response" outputName="obterTokenResponse" inputName="obterToken" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="19b8bed9-c150-4c62-9a8b-e54c5aa4fa93" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://esfingews.tce.sc.gov.br/esfinge/services/tokenWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tok="http://token.ws.tce.sc.gov.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tok:obterToken>
+         <codigoUg>?</codigoUg>
+      </tok:obterToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://token.ws.tce.sc.gov.br/FilaAcesso/obterToken"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

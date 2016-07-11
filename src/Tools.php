@@ -47,7 +47,10 @@ class Tools extends Base
      */
     protected $tsLastSitToken;
     
-
+    /**
+     * Construtor
+     * @param string $configJson
+     */
     public function __construct($configJson = '')
     {
         parent::__construct($configJson);
@@ -103,7 +106,6 @@ class Tools extends Base
                     //não está iniciada a tranferencia então não dá para cancelar
                     throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser cancelada');
                 }
-                $x = 'http://token.ws.tce.sc.gov.br/FilaAcesso/cancelarTransferencia';
                 $met = 'cancelarTransferencia';
                 $body = "<svc:cancelarTransferencia>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
@@ -111,6 +113,7 @@ class Tools extends Base
                 $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
+                    //cancelamento aceito
                     $this->tokenid = '';
                     $this->flagIniciar = false;
                 }
@@ -131,6 +134,7 @@ class Tools extends Base
                 $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
                 $resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
+                    //finalização aceita
                     $this->tokenid = '';
                     $this->flagIniciar = false;
                 }

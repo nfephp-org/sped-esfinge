@@ -13,7 +13,7 @@ class FilesFolders
     {
         $adapter = new Local($path, LOCK_EX, Local::DISALLOW_LINKS, [
             'file' => [
-                'public' => 0744,
+                'public' => 0755,
                 'private' => 0700
             ],
             'dir' => [
