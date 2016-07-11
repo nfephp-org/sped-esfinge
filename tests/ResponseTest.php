@@ -13,6 +13,9 @@ use NFePHP\Esfinge\Response;
 
 class ResponseTest extends FactoryTest
 {
+    /**
+     *
+     */
     public function testObterToken()
     {
         $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."responseObterToken.xml"));
@@ -70,41 +73,33 @@ class ResponseTest extends FactoryTest
     
     public function testServidorEnviar()
     {
-        
     }
     
     public function testServidorListar()
     {
-        
     }
     
     public function testSituacaoServidorFolhaPagamentoEnviar()
     {
-        
     }
     
     public function testSituacaoServidorFolhaPagamentoListar()
     {
-        
     }
     
     public function testComponentesFolhaPagamentoEnviar()
     {
-        
     }
     
     public function testComponentesFolhaPagamentoListar()
     {
-        
     }
     
     public function testFolhaPagamentoEnviar()
     {
-        
     }
     
     public function testFolhaPagamentoListar()
     {
-        
     }
 }

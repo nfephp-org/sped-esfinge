@@ -218,7 +218,6 @@ class CurlSoap
         curl_setopt($oCurl, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
-        //curl_setopt($oCurl, CURLOPT_BINARYTRANSFER, 1);
         curl_setopt($oCurl, CURLOPT_POST, 1);
         curl_setopt($oCurl, CURLOPT_POSTFIELDS, $data);
         if (!empty($parametros)) {
