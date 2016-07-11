@@ -12,20 +12,36 @@ try {
     $tools->setCompetencia('201602');
     //Enviar dados servidor
     $data[] = [
-        'idRetorno' => '',
-        'mensagemProcessamento' => '',
-        'codigoProcessamento' => '',
-        'numeroMatricula' => '',
-        'nomeServidor' => '',
-        'dataNascimento' => '',
-        'nomeMae' => '',
-        'nomePai' => '',
-        'numeroCPF' => '',
-        'numeroRegistroGeral' => '',
-        'numeroTituloEleitoral' => '',
-        'numeroCertificadoReservista' => '',
-        'numeroPisPasep' => '',
-        'codigoSexo' => ''
+        'idRetorno' => '1',
+        'mensagemProcessamento' => 'sei la',
+        'codigoProcessamento' => '123',
+        'numeroMatricula' => '00001',
+        'nomeServidor' => 'Ciclano de Tal',
+        'dataNascimento' => '12-11-1965',
+        'nomeMae' => 'Fulana de Tal',
+        'nomePai' => 'Beltrano de Tal',
+        'numeroCPF' => '12345678901234',
+        'numeroRegistroGeral' => '11111111111',
+        'numeroTituloEleitoral' => '2222222222',
+        'numeroCertificadoReservista' => '3333333333',
+        'numeroPisPasep' => '4444444444444',
+        'codigoSexo' => 'M'
+    ];
+    $data[] = [
+        'idRetorno' => '2',
+        'mensagemProcessamento' => 'sei la',
+        'codigoProcessamento' => '124',
+        'numeroMatricula' => '00002',
+        'nomeServidor' => 'Joana de Tal',
+        'dataNascimento' => '01-01-1967',
+        'nomeMae' => 'Fulana de Tal',
+        'nomePai' => 'Beltrano de Tal',
+        'numeroCPF' => '43210987654321',
+        'numeroRegistroGeral' => '21111111111',
+        'numeroTituloEleitoral' => '3222222222',
+        'numeroCertificadoReservista' => '4333333333',
+        'numeroPisPasep' => '5444444444444',
+        'codigoSexo' => 'F'
     ];
     //este método faz o envio,
     //se ainda não tiver o TOKEN -> Obtem  (automático)

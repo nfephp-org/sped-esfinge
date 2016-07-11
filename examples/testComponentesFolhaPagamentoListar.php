@@ -10,10 +10,10 @@ try {
     $tools = new Tools('../config/config.json');
     //definir o periodo de competência
     $tools->setCompetencia('201602');
-    //listar dados servidor
+    //listar dados componentes folha pagamento
     $filtros[] = [
-        'campo' => 'numeroCPF',
-        'valor' => '12345678901234',
+        'campo' => '',
+        'valor' => '',
         'tipo' => '',
         'tamanho' => '',
         'sufixo_operador' => ''
@@ -22,9 +22,14 @@ try {
         'pagina' => '1',
         'filtros' => $filtros
     ];
-    $retorno = $tools->servidor($data, 'L');
+    //este método faz o envio,
+    //se ainda não tiver o TOKEN -> Obtem  (automático)
+    //se ainda não tiver iniciado -> inicia (automático)
+    $retorno = $tools->componentesFolhaPagamento($data, 'L');
     //finalizar
-    $retorno = $tools->token($tools::TK_FINALIZA);
+    //a finalização não é automática é deve ser realizada 
+    //após todo o envio de dados 
+    $resp = $tools->token($tools::TK_FINALIZA);
 } catch (Exception $e) {
     echo "Houve uma exceção: " . $e->getMessage();
 }    

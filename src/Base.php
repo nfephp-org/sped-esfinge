@@ -168,7 +168,7 @@ class Base
         if (count($data) > 5000) {
             throw new InvalidArgumentException('O limite de 5000 dados foi ultrapassado.');
         }
-        $msg = '';
+        $msg = "";
         foreach ($data as $field) {
             $msg .= "<$key>";
             $msg .= $this->addTag($field);
@@ -210,7 +210,7 @@ class Base
             $key = 'listar';
             $codug = "<codigoUg>$this->codigoUnidadeGestora</codigoUg>";
         }
-        $msg = "<$key xmlns=\"$namespace\">";
+        $msg = "<$key>";
         $msg .= $codug;
         $msg .= "<chaveToken>$this->tokenid</chaveToken>";
         $msg .= "<competencia>$this->competencia</competencia>";
@@ -221,9 +221,10 @@ class Base
      * Monta o corpo de todas as mensagens
      * @param string $tipo
      * @param array $data
+     * @param string $key
      * @return string
      */
-    protected function buildMsgB($tipo, $data)
+    protected function buildMsgB($tipo, $data, $key = '')
     {
         if ($tipo == 'L') {
             //numerico pagina
@@ -268,9 +269,9 @@ class Base
     {
         //constroi a mensagem
         $body = $this->buildMsgH($method, $namespace);
-        $body .= $this->buildMsgB($method, $data);
+        $body .= $this->buildMsgB($method, $data, substr($met, 0, strlen($met)-1));
         //envia pelo curl
-        $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $method);
+        $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
         //processa o retorno
         $resp = Response::readReturn($met, $retorno);
         //salvar os arquivos para LOG

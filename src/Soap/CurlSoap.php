@@ -153,7 +153,7 @@ class CurlSoap
             //se não é igual a 200 houve erro
             $msg = $blocoHtml ."\r\n". $decompressPart;
             $filepath = $mark.'_ERROR.log';
-            FilesFolders::save($this->pathlog, $filepath, $data);
+            FilesFolders::save($this->pathlog, $filepath, $msg);
             throw new RuntimeException($msg);
         }
         //localiza a primeira marca de tag
