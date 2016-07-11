@@ -117,6 +117,15 @@ class Base
     }
     
     /**
+     * Retorna o tpAmb
+     * @return int
+     */
+    public function getAmbiente()
+    {
+        return $this->tpAmb;
+    }
+    
+    /**
      * setSoapTimeOut
      * Seta um valor para timeout
      *
@@ -124,7 +133,7 @@ class Base
      */
     public function setSoapTimeOut($segundos = 10)
     {
-        if (! empty($segundos)) {
+        if (! empty($segundos) && is_numeric($segundos)) {
             $this->soapTimeout = $segundos;
             $this->loadSoapClass();
         }
@@ -267,9 +276,13 @@ class Base
      */
     protected function envia($uri, $namespace, $data, $method, $met)
     {
-        //constroi a mensagem
-        $body = $this->buildMsgH($method, $namespace);
-        $body .= $this->buildMsgB($method, $data, substr($met, 0, strlen($met)-1));
+        if ($namespace !== 'http://token.ws.tce.sc.gov.br/') {
+            //constroi a mensagem
+            $body = $this->buildMsgH($method, $namespace);
+            $body .= $this->buildMsgB($method, $data, substr($met, 0, strlen($met)-1));
+        } else {
+            $body = $data;
+        }
         //envia pelo curl
         $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
         //processa o retorno

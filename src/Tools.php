@@ -110,8 +110,9 @@ class Tools extends Base
                 $body = "<svc:cancelarTransferencia>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:cancelarTransferencia>";
-                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                $resp =  Response::readReturn($met, $retorno);
+                $resp = $this->envia($uri, $namespace, $body, '', $met);
+                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                //$resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
                     //cancelamento aceito
                     $this->tokenid = '';
@@ -131,8 +132,9 @@ class Tools extends Base
                 $body = "<svc:finalizarTransferencia>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:finalizarTransferencia>";
-                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                $resp =  Response::readReturn($met, $retorno);
+                $resp = $this->envia($uri, $namespace, $body, '', $met);
+                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                //$resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
                     //finalização aceita
                     $this->tokenid = '';
@@ -159,8 +161,9 @@ class Tools extends Base
                 $body = "<svc:iniciarTransferencia>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:iniciarTransferencia>";
-                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                $resp =  Response::readReturn($met, $retorno);
+                $resp = $this->envia($uri, $namespace, $body, '', $met);
+                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                //$resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat']) {
                     $this->flagIniciar = true;
                 }
@@ -183,8 +186,9 @@ class Tools extends Base
                 $body = "<svc:obterToken>"
                     . "<codigoUg>$this->codigoUnidadeGestora</codigoUg>"
                     . "</svc:obterToken>";
-                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                $resp =  Response::readReturn($met, $retorno);
+                $resp = $this->envia($uri, $namespace, $body, '', $met);
+                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                //$resp =  Response::readReturn($met, $retorno);
                 if ($resp['bStat'] && $resp['chaveToken'] != '') {
                     $this->tokenid = $resp['chaveToken'];
                 }
@@ -214,8 +218,9 @@ class Tools extends Base
                 $body = "<svc:obterSituacaoToken>"
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:obterSituacaoToken>";
-                $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                $resp =  Response::readReturn($met, $retorno);
+                $resp = $this->envia($uri, $namespace, $body, '', $met);
+                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+                //$resp =  Response::readReturn($met, $retorno);
                 $this->tsLastSitToken = time();
                 break;
         }
