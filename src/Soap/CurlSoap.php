@@ -110,17 +110,12 @@ class CurlSoap
     {
         //monta a mensagem ao webservice
         $data = '<?xml version="1.0" encoding="utf-8"?>'.'<soap:Envelope ';
-        //$data .= 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ';
-        //$data .= 'xmlns:xsd="http://www.w3.org/2001/XMLSchema" ';
-        //$data .= 'xmlns:soap="http://www.w3.org/2003/05/soap-envelope">';
         $data .= 'xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" ';
         $data .= 'xmlns:svc="'.$namespace.'">';
-        //$data .= 'xmlns:ser="http://servidor.ws.tce.sc.gov.br/" >';
         $data .= '<soap:Header>'.$header.'</soap:Header>';
         $data .= '<soap:Body>'.$body.'</soap:Body>';
         $data .= '</soap:Envelope>';
         $data = $this->clearMsg($data);
-        
         //grava em propriedade da classe o envelope não compactado
         $this->lastMsg = $data;
         //salva o envelope em arquivo para efeito de LOG
@@ -128,55 +123,22 @@ class CurlSoap
         $filepath = $mark.'.xml';
         FilesFolders::save($this->pathlog, $filepath, $data);
         //compacta mensagem com GZip
-        //$zipdata = gzencode($data);
+        $data = gzencode($data);
         //tamanho da mensagem
         $tamanho = strlen($data);
         //estabelecimento dos parametros da mensagem
-        //$parametros = array(
-        //    'Content-Type: application/soap+xml;charset=utf-8;action="'.$namespace."/".$method.'"',
-        //    'SOAPAction: "'.$method.'"',
-        //    "Content-length: $tamanho");
-        //"application/fastinfoset, */*"
-        //"Accept-Encoding", "gzip, deflate"
-    //"Content-encoding", "gzip"
-    //"Content-type", "application/octet-stream"
-        $parametros = array(
-            'Accept-Encoding: gzip, deflate',
-            'Content-Type: text/xml;charset=UTF-8',
-            //'Content-Type: application/octet-stream',
-            
-            //'Content-encoding: gzip',
-            //'SOAPAction: ""',
-            "Content-length: $tamanho");
+        $parametros = [
+            "Accept-Encoding: gzip, deflate",
+            "Content-Type: text/xml;charset=UTF-8",
+            "Content-encoding: gzip",
+            "Content-length: $tamanho"
+        ];
         //solicita comunicação via cURL
-        //###########################################
-        //
-        $resposta = '';
-        if ($method == 'cancelarTransferencia') {
-            $resposta = file_get_contents('../tests/fixtures/responseCancelarTransferencia.xml');
-        }
-        if ($method == 'finalizarTransferencia') {
-            $resposta = file_get_contents('../tests/fixtures/responseFinalizarTransferencia.xml');
-        }
-        if ($method == 'iniciarTransferencia') {
-            $resposta = file_get_contents('../tests/fixtures/responseIniciarTransferencia.xml');
-        }
-        if ($method == 'obterToken') {
-        //    $resposta = file_get_contents('../tests/fixtures/responseObterToken.xml');
-        }
-        if ($method == 'obterSituacaoToken') {
-            $resposta = file_get_contents('../tests/fixtures/responseObterSituacaoToken.xml');
-        }
-        $this->infoCurl["http_code"] = '200';
-        //###########################################
-        if ($resposta == '') {
-            $resposta = $this->zCommCurl($urlservice, $data, $parametros);
-        }    
+        $resposta = $this->zCommCurl($urlservice, $data, $parametros);
         if (empty($resposta)) {
             $msg = "Não houve retorno do Curl.\n $this->errorCurl";
             throw new RuntimeException($msg);
         }
-        
         //obtem o bloco html da resposta
         $ad = explode("\x1f\x8b", $resposta);
         $blocoHtml = substr($$ad[0], 0, strlen($ad[0])-2);
@@ -216,6 +178,13 @@ class CurlSoap
         return $xml;
     }
     
+    /**
+     * Envio via cURL
+     * @param string $url
+     * @param string $data
+     * @param array $parametros
+     * @return string
+     */
     protected function zCommCurl($url, $data = '', $parametros = array())
     {
         //incializa cURL

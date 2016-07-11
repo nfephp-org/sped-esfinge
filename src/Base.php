@@ -142,36 +142,6 @@ class Base
     }
     
     /**
-     * Grava as mensagens em disco
-     *
-     * @param string $data conteudo a ser gravado
-     * @param string $filename
-     * @param int $tpAmb
-     * @param string $folder
-     * @param string $subFolder
-     * @throws RuntimeException
-     */
-    protected function gravaLog(
-        $data,
-        $filename,
-        $tpAmb = '2',
-        $folder = '',
-        $subFolder = ''
-    ) {
-        $anomes = date('Ym');
-        $pathTemp = $folder
-            . Files\FilesFolders::getAmbiente($tpAmb)
-            . DIRECTORY_SEPARATOR
-            . $subFolder
-            . DIRECTORY_SEPARATOR
-            . $anomes;
-        if (! Files\FilesFolders::saveFile($pathTemp, $filename, $data)) {
-            $msg = 'Falha na gravação no diretório. '.$pathTemp;
-            throw new RuntimeException($msg);
-        }
-    }
-
-    /**
      * Monta as tags com base na chave e no valor do array
      * @param array $data
      * @return string
@@ -289,7 +259,6 @@ class Base
     
     /**
      * Envia a mensagem para o webservice
-     *
      * @param string $urlService
      * @param strting $body
      * @param string $method
