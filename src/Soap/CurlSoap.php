@@ -140,10 +140,15 @@ class CurlSoap
             throw new RuntimeException($msg);
         }
         //obtem o bloco html da resposta
-        $ad = explode("\x1f\x8b", $resposta);
-        $blocoHtml = substr($$ad[0], 0, strlen($ad[0])-2);
-        $compressPart = "\x1f\x8b" . $ad[1];
-        $decompressPart = gzdecode($compressPart);
+        $xPos = stripos($resposta, "\x1f\x8b");
+        $blocoHtml = $resposta;
+        $decompressPart = '';
+        if ($xPos !== false) {
+            $ad = explode("\x1f\x8b", $resposta);
+            $blocoHtml = substr($ad[0], 0, strlen($ad[0])-2);
+            $compressPart = "\x1f\x8b" . $ad[1];
+            $decompressPart = trim(gzdecode($compressPart));
+        }
         if ($this->infoCurl["http_code"] != '200') {
             //se não é igual a 200 houve erro
             $msg = $blocoHtml ."\r\n". $decompressPart;
@@ -153,12 +158,14 @@ class CurlSoap
         }
         //localiza a primeira marca de tag
         $xPos = stripos($decompressPart, "<");
+        $lenresp = strlen($decompressPart);
         //se não existir não é um xml nem um html
         if ($xPos !== false) {
             $xml = substr($decompressPart, $xPos, $lenresp-$xPos);
         } else {
             $xml = '';
         }
+        //$xml = $decompressPart;
         //testa para saber se é um xml mesmo ou é um html
         $result = simplexml_load_string($xml, 'SimpleXmlElement', LIBXML_NOERROR+LIBXML_ERR_FATAL+LIBXML_ERR_NONE);
         if ($result === false) {
