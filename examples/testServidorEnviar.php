@@ -27,8 +27,13 @@ try {
         'numeroPisPasep' => '',
         'codigoSexo' => ''
     ];
+    //este método faz o envio,
+    //se ainda não tiver o TOKEN -> Obtem  (automático)
+    //se ainda não tiver iniciado -> inicia (automático)
     $retorno = $tools->servidor($data, 'E');
     //finalizar
+    //a finalização não é automática é deve ser realizada 
+    //após todo o envio de dados 
     $resp = $tools->token($tools::TK_Finaliza);
 } catch (Exception $e) {
     echo "Houve uma exceção: " . $e->getMessage();
