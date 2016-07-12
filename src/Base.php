@@ -183,7 +183,7 @@ class Base
             $msg .= $this->addTag($field);
             $msg .= "</$key>";
         }
-        $msg .= '</enviar>';
+        $msg .= '</svc:enviar>';
         return $msg;
     }
     
@@ -202,7 +202,7 @@ class Base
             $f .= '</filtros>';
             $msg .= $f;
         };
-        $msg .= '</listar>';
+        $msg .= '</svc:listar>';
         return $msg;
     }
     
@@ -213,7 +213,7 @@ class Base
      */
     protected function buildMsgH($tipo, $namespace)
     {
-        $key = 'enviar';
+        $key = 'svc:enviar';
         $codug = '';
         if ($tipo == 'L') {
             $key = 'listar';
