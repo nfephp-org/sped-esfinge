@@ -286,7 +286,14 @@ class Base
         //envia pelo curl
         $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
         //processa o retorno
-        $resp = Response::readReturn($met, $retorno);
+        if ($method == 'L') {
+            $tag = 'listar';
+        } elseif ($method == 'E') {
+            $tag = 'enviar';
+        } else {
+            $tag = $met;
+        }
+        $resp = Response::readReturn($tag, $retorno);
         //salvar os arquivos para LOG
         return $resp;
     }

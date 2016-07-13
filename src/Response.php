@@ -6,7 +6,7 @@ use DOMDocument;
 
 class Response
 {
-    public static function readReturn($method = '', $xmlResp = '')
+    public static function readReturn($tag = '', $xmlResp = '')
     {
         if (trim($xmlResp) == '') {
             return [
@@ -35,7 +35,7 @@ class Response
             ];
         }
         //converte o xml em uma StdClass
-        $std = self::xml2Obj($dom, $method);
+        $std = self::xml2Obj($dom, $tag);
         return self::readRespStd($std);
     }
     
