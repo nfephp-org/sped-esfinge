@@ -226,14 +226,16 @@ class Tools extends Base
      * @throws InvalidArgumentException
      * @throws RuntimeException
      */
-    protected function obterTokenIniciarTransferencia($data = array())
+    protected function obterTokenIniciarTransferencia($data = array(), $method = 'L')
     {
         if (empty($data)) {
             throw new InvalidArgumentException('Não foram passados dados para o método');
         }
         $this->token(self::TK_OBTEM);
-        $this->token(self::TK_INICIA);
-        if ($this->tokenid == '' || $this->flagIniciar === false) {
+        if ($method == 'E') {
+            $this->token(self::TK_INICIA);
+        }
+        if ($this->tokenid == '') {
             throw new RuntimeException("Falha token:$this->tokenid , Iniciar: $this->flagIniciar");
         }
     }
@@ -248,7 +250,7 @@ class Tools extends Base
      */
     public function servidor($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/servidorWS';
         $namespace = 'http://servidor.ws.tce.sc.gov.br/';
         $met = 'servidor'.$method;
@@ -267,7 +269,7 @@ class Tools extends Base
      */
     public function situacaoServidorFolhaPagamento($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/situacaoServidorFolhaPagamentoWS';
         $namespace = 'http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/';
         $met = 'situacaoServidorFolhaPagamento'.$method;
@@ -285,7 +287,7 @@ class Tools extends Base
      */
     public function componentesFolhaPagamento($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/componentesFolhaPagamentoWS';
         $namespace = 'http://componentesfolhapagamento.ws.tce.sc.gov.br/';
         $met = 'componentesFolhaPagamento'.$method;
@@ -303,7 +305,7 @@ class Tools extends Base
      */
     public function folhaPagamento($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/folhaPagamentoWS';
         $namespace = 'http://folhapagamento.ws.tce.sc.gov.br/';
         $met = 'folhaPagamento'.$method;
