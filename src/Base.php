@@ -216,7 +216,7 @@ class Base
         $key = 'svc:enviar';
         $codug = '';
         if ($tipo == 'L') {
-            $key = 'listar';
+            $key = 'svc:listar';
             $codug = "<codigoUg>$this->codigoUnidadeGestora</codigoUg>";
         }
         $msg = "<$key>";
