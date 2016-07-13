@@ -111,7 +111,7 @@ class Tools extends Base
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:cancelarTransferencia>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                if ($resp['bStat']) {
+                if ($resp['bStat'] && $resp['status'] == 'OK') {
                     //cancelamento aceito
                     $this->tokenid = '';
                     $this->flagIniciar = false;
@@ -131,7 +131,7 @@ class Tools extends Base
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:finalizarTransferencia>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                if ($resp['bStat']) {
+                if ($resp['bStat'] && $resp['status'] == 'OK') {
                     //finalização aceita
                     $this->tokenid = '';
                     $this->flagIniciar = false;
@@ -158,7 +158,7 @@ class Tools extends Base
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:iniciarTransferencia>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                if ($resp['bStat']) {
+                if ($resp['bStat'] && $resp['status'] == 'OK') {
                     $this->flagIniciar = true;
                 }
                 break;
@@ -181,7 +181,10 @@ class Tools extends Base
                     . "<codigoUg>$this->codigoUnidadeGestora</codigoUg>"
                     . "</svc:obterToken>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                if ($resp['bStat'] && $resp['chaveToken'] != '') {
+                if ($resp['bStat']
+                    && $resp['chaveToken'] != ''
+                    && $resp['status'] == 'OK'
+                ) {
                     $this->tokenid = $resp['chaveToken'];
                 }
                 break;
