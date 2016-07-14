@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:listarResponse xmlns:ns2="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
+            <return>
+                <dados>
+                    <entry>
+                        <key>0</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9099</codigoComponente>
+                            <descricaoComponente>1/3 FÉRIAS PROPORCIONAIS RESCISÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>1</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>23</codigoComponente>
+                            <descricaoComponente>ABONO ANUAL(13º. SAL.)</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>2</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1018</codigoComponente>
+                            <descricaoComponente>ABONO PECUNIÁRIO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>3</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1022</codigoComponente>
+                            <descricaoComponente>ABONO PECUNIÁRIO 1/3</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>4</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9621</codigoComponente>
+                            <descricaoComponente>ADIC.ESPECIALIZ.LC 231/13</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>5</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9512</codigoComponente>
+                            <descricaoComponente>ADICIONAL ADQUIRIDO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>6</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9586</codigoComponente>
+                            <descricaoComponente>ADICIONAL DE ZELO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>7</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9239</codigoComponente>
+                            <descricaoComponente>ADICIONAL NOTURNO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>8</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9625</codigoComponente>
+                            <descricaoComponente>ANTECIPAÇÃO 13º SAL.</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>9</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>5</codigoComponente>
+                            <descricaoComponente>APOS. COMPULSÓRIA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>10</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>lei 001</baseLegalComponente>
+                            <codigoComponente>1</codigoComponente>
+                            <descricaoComponente>APOS. POR IDADE</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>11</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>8</codigoComponente>
+                            <descricaoComponente>APOS. POR IDADE E TEMPO CONTRIB.</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>12</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>2</codigoComponente>
+                            <descricaoComponente>APOS. POR INVALIDEZ</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>13</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>12</codigoComponente>
+                            <descricaoComponente>APOS. PROFESSOR</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>14</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9594</codigoComponente>
+                            <descricaoComponente>AUX. MUTUÁRIO COHAB/SC</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>15</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9035</codigoComponente>
+                            <descricaoComponente>AUXÍLIO NATALIDADE</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>16</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9251</codigoComponente>
+                            <descricaoComponente>BOLSA DE ESTUDO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>17</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9501</codigoComponente>
+                            <descricaoComponente>BOLSA PÓS-GRADUAÇÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>18</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9600</codigoComponente>
+                            <descricaoComponente>BONIFICAÇÃO AD.HR.OPER.</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>19</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9232</codigoComponente>
+                            <descricaoComponente>BONIFICAÇÃO APOSENTADO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>20</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9476</codigoComponente>
+                            <descricaoComponente>COMPL. CARGA HORÁRIA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>21</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1011</codigoComponente>
+                            <descricaoComponente>COMPLEMENTO PROV.</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>22</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9049</codigoComponente>
+                            <descricaoComponente>CONTRIBUIÇÃO SINDICAL</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>23</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9613</codigoComponente>
+                            <descricaoComponente>DESC.EM FAVOR DO ERÁRIO(%)</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>24</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1010</codigoComponente>
+                            <descricaoComponente>DESCONTO - LIMITE TETO MAXIMO</descricaoComponente>
+                            <especificacaoNaturezaComponente>7</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>25</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1015</codigoComponente>
+                            <descricaoComponente>DESCONTO - TETO RPGS</descricaoComponente>
+                            <especificacaoNaturezaComponente>7</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>26</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9079</codigoComponente>
+                            <descricaoComponente>DIFERENÇA DE FÉRIAS</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>27</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9580</codigoComponente>
+                            <descricaoComponente>DIFERENÇA DE SALÁRIO - APOSENTADO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>28</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9573</codigoComponente>
+                            <descricaoComponente>DIFERENÇA DE SALÁRIO - PENSIONISTA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>29</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9535</codigoComponente>
+                            <descricaoComponente>DIFERENÇA DE TRIÊNIO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>30</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9550</codigoComponente>
+                            <descricaoComponente>DIFERENÇA SALÁRIO MÍNIMO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>31</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9490</codigoComponente>
+                            <descricaoComponente>DIFERENÇA VENCTº COMISSIONADO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>32</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1016</codigoComponente>
+                            <descricaoComponente>FÉRIAS</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>33</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1020</codigoComponente>
+                            <descricaoComponente>FERIAS 1/3</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>34</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9096</codigoComponente>
+                            <descricaoComponente>FÉRIAS PROPORCIONAIS RESCISÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>35</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9592</codigoComponente>
+                            <descricaoComponente>FUNÇÃO GRATIFICADA LEI 6.438</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>36</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9223</codigoComponente>
+                            <descricaoComponente>GRAT. COMP. CARGA HORÁRIA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>37</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9485</codigoComponente>
+                            <descricaoComponente>GRAT. COMP. CARGA HORÁRIA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>38</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9542</codigoComponente>
+                            <descricaoComponente>GRAT. DE FUNÇÃO ESPECIALIZADA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>39</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9216</codigoComponente>
+                            <descricaoComponente>GRAT. DOC. ENSINO INFANTIL</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>40</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9224</codigoComponente>
+                            <descricaoComponente>GRAT. ESC. ISOLADA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>41</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9247</codigoComponente>
+                            <descricaoComponente>GRAT. ESP. 40H. APOSENTADO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>42</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9248</codigoComponente>
+                            <descricaoComponente>GRAT. ESP. 40H. PENSIONISTA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>43</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9544</codigoComponente>
+                            <descricaoComponente>GRAT. GRADUAÇÃO 10%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>44</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>29</codigoComponente>
+                            <descricaoComponente>GRAT. HOR. ESP. SAUDE</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>45</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9222</codigoComponente>
+                            <descricaoComponente>GRAT. REGENCIA DE CLASSE</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>46</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9228</codigoComponente>
+                            <descricaoComponente>GRAT. SUP. ED. P/ O LAR</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>47</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9605</codigoComponente>
+                            <descricaoComponente>GRAT.DOC.ENS. FUNDAMENTAL</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>48</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9568</codigoComponente>
+                            <descricaoComponente>GRATIFICAÇAO GCCD 10%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>49</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9240</codigoComponente>
+                            <descricaoComponente>IMPORTANCIA PAGA A MAIOR</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>50</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>51</codigoComponente>
+                            <descricaoComponente>IMPOSTO DE RENDA</descricaoComponente>
+                            <especificacaoNaturezaComponente>6</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>51</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1024</codigoComponente>
+                            <descricaoComponente>IMPOSTO DE RENDA - FERIAS</descricaoComponente>
+                            <especificacaoNaturezaComponente>6</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>52</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1026</codigoComponente>
+                            <descricaoComponente>IMPOSTO DE RENDA RRA</descricaoComponente>
+                            <especificacaoNaturezaComponente>6</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>53</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>28</codigoComponente>
+                            <descricaoComponente>INSALUBRIDADE</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>54</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9429</codigoComponente>
+                            <descricaoComponente>INSALUBRIDADE % INFORMADO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>55</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9011</codigoComponente>
+                            <descricaoComponente>INSALUBRIDADE 10%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>56</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9502</codigoComponente>
+                            <descricaoComponente>INSALUBRIDADE 12%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>57</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9503</codigoComponente>
+                            <descricaoComponente>INSALUBRIDADE 16%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>58</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9012</codigoComponente>
+                            <descricaoComponente>INSALUBRIDADE 20%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>59</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9013</codigoComponente>
+                            <descricaoComponente>INSALUBRIDADE 40%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>60</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>50</codigoComponente>
+                            <descricaoComponente>INSS</descricaoComponente>
+                            <especificacaoNaturezaComponente>4</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>61</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9416</codigoComponente>
+                            <descricaoComponente>IPI - CAPITALIZAÇÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>5</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>62</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9056</codigoComponente>
+                            <descricaoComponente>IPI - REPARTIÇÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>5</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>63</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9057</codigoComponente>
+                            <descricaoComponente>IPI 13º SALÁRIO - CAPITALIZAÇÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>64</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9536</codigoComponente>
+                            <descricaoComponente>LICENÇA PRÊMIO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>65</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>6</codigoComponente>
+                            <descricaoComponente>PENSÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>66</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>54</codigoComponente>
+                            <descricaoComponente>PENSÃO ALIMENTÍCIA</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>67</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>53</codigoComponente>
+                            <descricaoComponente>PREV. MUNICIPAL</descricaoComponente>
+                            <especificacaoNaturezaComponente>5</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>68</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1025</codigoComponente>
+                            <descricaoComponente>PREV. MUNICIPAL FERIAS</descricaoComponente>
+                            <especificacaoNaturezaComponente>5</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>69</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>1027</codigoComponente>
+                            <descricaoComponente>PREV. MUNICIPAL RRA</descricaoComponente>
+                            <especificacaoNaturezaComponente>5</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>70</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9584</codigoComponente>
+                            <descricaoComponente>REDUTOR DE PROV</descricaoComponente>
+                            <especificacaoNaturezaComponente>7</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>71</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9220</codigoComponente>
+                            <descricaoComponente>REPRESENTAÇÃO DE FUNÇÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>72</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9221</codigoComponente>
+                            <descricaoComponente>REPRESENTAÇÃO DE FUNÇÃO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>73</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>7</codigoComponente>
+                            <descricaoComponente>SALÁRIO NORMAL</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>74</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9233</codigoComponente>
+                            <descricaoComponente>SINDAFIMSC</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>75</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9230</codigoComponente>
+                            <descricaoComponente>SINDICATO - SSPMRFRI</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>76</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>11</codigoComponente>
+                            <descricaoComponente>SUBSIDIO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>77</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9433</codigoComponente>
+                            <descricaoComponente>SUSPENSÃO DE PAGAMENTO</descricaoComponente>
+                            <especificacaoNaturezaComponente>9</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>78</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>26</codigoComponente>
+                            <descricaoComponente>TRIÊNIO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>79</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9018</codigoComponente>
+                            <descricaoComponente>TRIÊNIO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>80</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9423</codigoComponente>
+                            <descricaoComponente>TRIÊNIO 10%</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>81</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9418</codigoComponente>
+                            <descricaoComponente>TRIÊNIO 5% CATEGORIA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>82</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9246</codigoComponente>
+                            <descricaoComponente>TRIENIO 70% SOB/CAT.</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>83</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9606</codigoComponente>
+                            <descricaoComponente>TRIENIO 70% SOB/VECTO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>84</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9419</codigoComponente>
+                            <descricaoComponente>TRIENIO ADQUIRIDO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>85</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>27</codigoComponente>
+                            <descricaoComponente>TRIÊNIO ADQUIRIDO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>86</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9231</codigoComponente>
+                            <descricaoComponente>TRIENIO APOSENTADO</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>87</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9042</codigoComponente>
+                            <descricaoComponente>VALE TRANSPORTE</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>88</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9545</codigoComponente>
+                            <descricaoComponente>VALORES RETROATIVOS</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>E</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>89</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9624</codigoComponente>
+                            <descricaoComponente>VANT.PESS.NOM.ID LC_265/14</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>90</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9218</codigoComponente>
+                            <descricaoComponente>VANT.PESSOAL NOMIN.IDENTIFICADA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>91</key>
+                        <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:componentesFolhaPagamento">
+                            <anoMesComponente>201601</anoMesComponente>
+                            <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                            <codigoComponente>9227</codigoComponente>
+                            <descricaoComponente>VANT.PESSOAL NOMINALMENTE IDENTIFICADA</descricaoComponente>
+                            <especificacaoNaturezaComponente>1</especificacaoNaturezaComponente>
+                            <indicadorComponente>P</indicadorComponente>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>TOTAL</key>
+                        <value xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:int">92</value>
+                    </entry>
+                    <entry>
+                        <key>PAGINA</key>
+                        <value xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:int">1</value>
+                    </entry>
+                    <entry>
+                        <key>QUANTIDADE_PAGINAS</key>
+                        <value xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:int">1</value>
+                    </entry>
+                </dados>
+                <mensagem> Consulta executada com sucesso com 92 resultado(s)</mensagem>
+                <status>OK</status>
+            </return>
+        </ns2:listarResponse>
+    </soap:Body>
+</soap:Envelope>
