@@ -46,6 +46,16 @@ class ToolsTest extends FactoryTest
     }
     
     /**
+     * @covers NFePHP\Esfinge\Tools::getToken
+     */
+    public function testGetToken()
+    {
+        $evt = new Tools($this->config);
+        $token = $evt->getToken();
+        $this->assertEquals('', $token);
+    }
+    
+    /**
      * @covers NFePHP\Esfinge\Tools::setCompetencia
      * @covers NFePHP\Esfinge\Tools::getCompetencia
      * @expectedException InvalidArgumentException
