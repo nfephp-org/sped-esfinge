@@ -59,6 +59,7 @@ class Response
             'status' => $std->return->status
         ];
         $dados = $std->return->dados;
+        $aReg = array();
         if (property_exists($dados, 'entry')) {
             foreach ($std->return->dados->entry as $entry) {
                 if (is_object($entry->value)) {

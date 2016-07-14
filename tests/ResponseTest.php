@@ -93,6 +93,13 @@ class ResponseTest extends FactoryTest
     
     public function testComponentesFolhaPagamentoListar()
     {
+        $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."componentesFolhaPagamentoL_response.xml"));
+        $method = 'listar';
+        $resp = Response::readReturn($method, $xml);
+        $jsonR = json_encode($resp);
+        //file_put_contents($this->pathFixtures."componentesFolhaPagamentoL_response.txt", $jsonR);
+        $expected = str_replace("\n", "", file_get_contents($this->pathFixtures."componentesFolhaPagamentoL_response.txt"));
+        $this->assertEquals($expected, $jsonR);
     }
     
     public function testFolhaPagamentoEnviar()

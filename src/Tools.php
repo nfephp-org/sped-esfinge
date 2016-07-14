@@ -29,13 +29,13 @@ class Tools extends Base
      * BB = bimestre de 01 até 06
      * @var string
      */
-    protected $competencia;
+    protected $competencia = ''; 
     /**
      * Token de segurança e queue
      * hash com 36 caracteres aleatórios
      * @var string
      */
-    protected $tokenid;
+    protected $tokenid = '';
     /**
      * Flag iniciar tranferencia
      * @var bool
@@ -80,6 +80,24 @@ class Tools extends Base
     public function getCompetencia()
     {
         return $this->competencia;
+    }
+    
+    /**
+     * Retorna no token ativo
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->tokenid;
+    }
+    
+    /**
+     * Retorna o status de inicio de transferencia
+     * @return bool
+     */
+    public function getTransferencia()
+    {
+        return $this->flagIniciar;
     }
     
     /**
