@@ -95,7 +95,7 @@ class Tools extends Base
      * Retorna o status de inicio de transferencia
      * @return bool
      */
-    public function getTranferencia()
+    public function getTransferencia()
     {
         return $this->flagIniciar;
     }
