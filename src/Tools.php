@@ -29,7 +29,7 @@ class Tools extends Base
      * BB = bimestre de 01 até 06
      * @var string
      */
-    protected $competencia = ''; 
+    protected $competencia = '';
     /**
      * Token de segurança e queue
      * hash com 36 caracteres aleatórios
