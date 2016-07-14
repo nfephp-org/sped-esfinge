@@ -66,6 +66,10 @@ class Response
                         foreach ($entry->value->registros as $registro) {
                             $aReg[$registro->campo] = $registro->valor;
                         }
+                    } else {
+                        foreach ($entry->value as $chave => $valor) {
+                            $aReg[$chave] = $valor;
+                        }
                     }
                     $aResp[$entry->key] = $aReg;
                 } else {
