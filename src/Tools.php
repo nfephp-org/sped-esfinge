@@ -122,7 +122,7 @@ class Tools extends Base
                 //realizadas são descartadas
                 if ($this->flagIniciar === false) {
                     //não está iniciada a tranferencia então não dá para cancelar
-                    throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser cancelada');
+                    throw new RuntimeException('A transferência não foi iniciada, então não pode ser cancelada');
                 }
                 $met = 'cancelarTransferencia';
                 $body = "<svc:cancelarTransferencia>"
@@ -142,7 +142,7 @@ class Tools extends Base
                 //o token atual será descartado.
                 if ($this->flagIniciar === false) {
                     //não está iniciada a tranferencia então não dá para finalizar
-                    throw new RuntimeException('A tranferencia não foi iniciada, então não pode ser finalizada');
+                    throw new RuntimeException('A transferência não foi iniciada, então não pode ser finalizada');
                 }
                 $met = 'finalizarTransferencia';
                 $body = "<svc:finalizarTransferencia>"
@@ -160,7 +160,7 @@ class Tools extends Base
                 //o serviço iniciarTransferencia
                 if ($this->tokenid == '') {
                     //não é possivel iniciar sem um token valido
-                    throw new RuntimeException('Não é possivel iniciar a tranferência sem um token valido');
+                    throw new RuntimeException('Não é possivel iniciar a transferência sem um token valido');
                     //$this->token(self::TK_O);
                 }
                 if ($this->flagIniciar === true) {

@@ -85,8 +85,7 @@ class Base
         if (is_file($configJson)) {
             $config = file_get_contents($configJson);
         }
-        $this->aConfig = json_decode($config, true);
-        
+        $this->aConfig = (array) json_decode($config, true);
         $this->username = $this->aConfig['username'];
         $this->password = $this->aConfig['password'];
         $this->codigoUnidadeGestora = $this->aConfig['codigoUnidadeGestora'];
@@ -271,12 +270,15 @@ class Base
     
     /**
      * Envia a mensagem para o webservice
-     * @param string $urlService
-     * @param strting $body
+     * @param string $uri
+     * @param string $namespace
+     * @param array $data
      * @param string $method
+     * @param string $met
+     * @param string $retorno usado apenas para unit testes onde não desejamos acessar o SOAP
      * @return string
      */
-    protected function envia($uri, $namespace, $data, $method, $met)
+    protected function envia($uri, $namespace, $data, $method, $met, $retorno = '')
     {
         if ($namespace !== 'http://token.ws.tce.sc.gov.br/') {
             //constroi a mensagem
@@ -285,8 +287,10 @@ class Base
         } else {
             $body = $data;
         }
-        //envia pelo curl
-        $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+        if (empty($retorno)) {
+            //envia pelo curl
+            $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
+        }
         //processa o retorno
         if ($method == 'L') {
             $tag = 'listar';
@@ -296,7 +300,6 @@ class Base
             $tag = $met;
         }
         $resp = Response::readReturn($tag, $retorno);
-        //salvar os arquivos para LOG
         return $resp;
     }
     
