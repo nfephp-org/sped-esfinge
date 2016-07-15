@@ -25,7 +25,7 @@ try {
         'pagina' => '1',
         'filtros' => $filtros
     ];
-    $retorno = $tools->token($tools::TK_OBTEM);
+    //$retorno = $tools->token($tools::TK_OBTEM);
     $retorno = $tools->servidor($data, 'L');
     //################
     // Essa variável $retorno irá conter a resposta do TCE na form ade um ARRAY
@@ -33,6 +33,9 @@ try {
     //################
     //finalizar
     //$retorno = $tools->token($tools::TK_FINALIZA);
+    echo "<pre>";
+    print_r($retorno);
+    echo "</pre>";
 } catch (Exception $e) {
     echo "Houve uma exceção: " . $e->getMessage();
 }    

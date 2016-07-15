@@ -249,10 +249,10 @@ class Tools extends Base
         if (empty($data)) {
             throw new InvalidArgumentException('Não foram passados dados para o método');
         }
-        //$this->token(self::TK_OBTEM);
-        //if ($method == 'E') {
-        //    $this->token(self::TK_INICIA);
-        //}
+        $this->token(self::TK_OBTEM);
+        if ($method == 'E') {
+            $this->token(self::TK_INICIA);
+        }
         if ($this->tokenid == '') {
             throw new RuntimeException("Falha token:$this->tokenid , Iniciar: $this->flagIniciar");
         }
