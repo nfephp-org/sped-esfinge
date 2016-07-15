@@ -1,6 +1,6 @@
 # SPED-ESFINGE
 
-** API PHP para integração com o Sistema de Fiscalização Integrada de Gestão (e-Sfinge) do Tribunal de Contas do Estado de Santa Catarina**
+**API PHP para integração com o Sistema de Fiscalização Integrada de Gestão (e-Sfinge) do Tribunal de Contas do Estado de Santa Catarina**
 
 *sped-esfinge* é um framework que permite a integração de um aplicativo com os serviços do projeto e-Sfinge do TCE/SC, realizando a montagem das mensagens SOAP usando Web Services Security (especificação publicada pela OASIS), com username e password fornecidos pelo TCE/SC.
 
