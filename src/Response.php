@@ -6,7 +6,7 @@ use DOMDocument;
 
 class Response
 {
-    public static function readReturn($method = '', $xmlResp = '')
+    public static function readReturn($tag = '', $xmlResp = '')
     {
         if (trim($xmlResp) == '') {
             return [
@@ -35,7 +35,7 @@ class Response
             ];
         }
         //converte o xml em uma StdClass
-        $std = self::xml2Obj($dom, $method);
+        $std = self::xml2Obj($dom, $tag);
         return self::readRespStd($std);
     }
     
@@ -59,12 +59,17 @@ class Response
             'status' => $std->return->status
         ];
         $dados = $std->return->dados;
+        $aReg = array();
         if (property_exists($dados, 'entry')) {
             foreach ($std->return->dados->entry as $entry) {
                 if (is_object($entry->value)) {
                     if (property_exists($entry->value, 'registros')) {
                         foreach ($entry->value->registros as $registro) {
                             $aReg[$registro->campo] = $registro->valor;
+                        }
+                    } else {
+                        foreach ($entry->value as $chave => $valor) {
+                            $aReg[$chave] = $valor;
                         }
                     }
                     $aResp[$entry->key] = $aReg;

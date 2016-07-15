@@ -183,7 +183,7 @@ class Base
             $msg .= $this->addTag($field);
             $msg .= "</$key>";
         }
-        $msg .= '</enviar>';
+        $msg .= '</svc:enviar>';
         return $msg;
     }
     
@@ -202,7 +202,7 @@ class Base
             $f .= '</filtros>';
             $msg .= $f;
         };
-        $msg .= '</listar>';
+        $msg .= '</svc:listar>';
         return $msg;
     }
     
@@ -213,10 +213,10 @@ class Base
      */
     protected function buildMsgH($tipo, $namespace)
     {
-        $key = 'enviar';
+        $key = 'svc:enviar';
         $codug = '';
         if ($tipo == 'L') {
-            $key = 'listar';
+            $key = 'svc:listar';
             $codug = "<codigoUg>$this->codigoUnidadeGestora</codigoUg>";
         }
         $msg = "<$key>";
@@ -286,7 +286,14 @@ class Base
         //envia pelo curl
         $retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
         //processa o retorno
-        $resp = Response::readReturn($met, $retorno);
+        if ($method == 'L') {
+            $tag = 'listar';
+        } elseif ($method == 'E') {
+            $tag = 'enviar';
+        } else {
+            $tag = $met;
+        }
+        $resp = Response::readReturn($tag, $retorno);
         //salvar os arquivos para LOG
         return $resp;
     }

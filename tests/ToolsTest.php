@@ -46,6 +46,26 @@ class ToolsTest extends FactoryTest
     }
     
     /**
+     * @covers NFePHP\Esfinge\Tools::getToken
+     */
+    public function testGetToken()
+    {
+        $evt = new Tools($this->config);
+        $token = $evt->getToken();
+        $this->assertEquals('', $token);
+    }
+    
+    /**
+     * @covers NFePHP\Esfinge\Tools::getTransferencia
+     */
+    public function testGetTransferencia()
+    {
+        $evt = new Tools($this->config);
+        $flag = $evt->getTransferencia();
+        $this->assertFalse($flag);
+    }
+    
+    /**
      * @covers NFePHP\Esfinge\Tools::setCompetencia
      * @covers NFePHP\Esfinge\Tools::getCompetencia
      * @expectedException InvalidArgumentException

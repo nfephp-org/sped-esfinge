@@ -29,13 +29,13 @@ class Tools extends Base
      * BB = bimestre de 01 até 06
      * @var string
      */
-    protected $competencia;
+    protected $competencia = '';
     /**
      * Token de segurança e queue
      * hash com 36 caracteres aleatórios
      * @var string
      */
-    protected $tokenid;
+    protected $tokenid = '';
     /**
      * Flag iniciar tranferencia
      * @var bool
@@ -83,6 +83,24 @@ class Tools extends Base
     }
     
     /**
+     * Retorna no token ativo
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->tokenid;
+    }
+    
+    /**
+     * Retorna o status de inicio de transferencia
+     * @return bool
+     */
+    public function getTransferencia()
+    {
+        return $this->flagIniciar;
+    }
+    
+    /**
      * Operações com token
      * O método pode ser:
      *   C - cancela a transferencia
@@ -111,9 +129,7 @@ class Tools extends Base
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:cancelarTransferencia>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                //$resp =  Response::readReturn($met, $retorno);
-                if ($resp['bStat']) {
+                if ($resp['bStat'] && $resp['status'] == 'OK') {
                     //cancelamento aceito
                     $this->tokenid = '';
                     $this->flagIniciar = false;
@@ -133,9 +149,7 @@ class Tools extends Base
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:finalizarTransferencia>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                //$resp =  Response::readReturn($met, $retorno);
-                if ($resp['bStat']) {
+                if ($resp['bStat'] && $resp['status'] == 'OK') {
                     //finalização aceita
                     $this->tokenid = '';
                     $this->flagIniciar = false;
@@ -162,9 +176,7 @@ class Tools extends Base
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:iniciarTransferencia>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                //$resp =  Response::readReturn($met, $retorno);
-                if ($resp['bStat']) {
+                if ($resp['bStat'] && $resp['status'] == 'OK') {
                     $this->flagIniciar = true;
                 }
                 break;
@@ -187,9 +199,10 @@ class Tools extends Base
                     . "<codigoUg>$this->codigoUnidadeGestora</codigoUg>"
                     . "</svc:obterToken>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                //$resp =  Response::readReturn($met, $retorno);
-                if ($resp['bStat'] && $resp['chaveToken'] != '') {
+                if ($resp['bStat']
+                    && $resp['chaveToken'] != ''
+                    && $resp['status'] == 'OK'
+                ) {
                     $this->tokenid = $resp['chaveToken'];
                 }
                 break;
@@ -219,8 +232,6 @@ class Tools extends Base
                     . "<chaveToken>$this->tokenid</chaveToken>"
                     . "</svc:obterSituacaoToken>";
                 $resp = $this->envia($uri, $namespace, $body, '', $met);
-                //$retorno = $this->oSoap->send($uri, $namespace, $this->header, $body, $met);
-                //$resp =  Response::readReturn($met, $retorno);
                 $this->tsLastSitToken = time();
                 break;
         }
@@ -233,14 +244,16 @@ class Tools extends Base
      * @throws InvalidArgumentException
      * @throws RuntimeException
      */
-    protected function obterTokenIniciarTransferencia($data = array())
+    protected function obterTokenIniciarTransferencia($data = array(), $method = 'L')
     {
         if (empty($data)) {
             throw new InvalidArgumentException('Não foram passados dados para o método');
         }
         $this->token(self::TK_OBTEM);
-        $this->token(self::TK_INICIA);
-        if ($this->tokenid == '' || $this->flagIniciar === false) {
+        if ($method == 'E') {
+            $this->token(self::TK_INICIA);
+        }
+        if ($this->tokenid == '') {
             throw new RuntimeException("Falha token:$this->tokenid , Iniciar: $this->flagIniciar");
         }
     }
@@ -255,7 +268,7 @@ class Tools extends Base
      */
     public function servidor($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/servidorWS';
         $namespace = 'http://servidor.ws.tce.sc.gov.br/';
         $met = 'servidor'.$method;
@@ -274,7 +287,7 @@ class Tools extends Base
      */
     public function situacaoServidorFolhaPagamento($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/situacaoServidorFolhaPagamentoWS';
         $namespace = 'http://situacaoservidorfolhapagamento.ws.tce.sc.gov.br/';
         $met = 'situacaoServidorFolhaPagamento'.$method;
@@ -292,7 +305,7 @@ class Tools extends Base
      */
     public function componentesFolhaPagamento($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/componentesFolhaPagamentoWS';
         $namespace = 'http://componentesfolhapagamento.ws.tce.sc.gov.br/';
         $met = 'componentesFolhaPagamento'.$method;
@@ -310,7 +323,7 @@ class Tools extends Base
      */
     public function folhaPagamento($data = array(), $method = 'L')
     {
-        $this->obterTokenIniciarTransferencia($data);
+        $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/folhaPagamentoWS';
         $namespace = 'http://folhapagamento.ws.tce.sc.gov.br/';
         $met = 'folhaPagamento'.$method;

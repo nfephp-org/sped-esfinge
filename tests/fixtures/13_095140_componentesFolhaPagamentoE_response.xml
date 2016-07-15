@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:enviarResponse xmlns:ns2="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
+            <return>
+                <dados/>
+                <mensagem> Falta confirmar a competência anterior </mensagem>
+                <status>ERRO</status>
+            </return>
+        </ns2:enviarResponse>
+    </soap:Body>
+</soap:Envelope>
