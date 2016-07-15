@@ -168,7 +168,6 @@ class CurlSoap
         } else {
             $xml = '';
         }
-        //$xml = $decompressPart;
         //testa para saber se é um xml mesmo ou é um html
         $result = simplexml_load_string($xml, 'SimpleXmlElement', LIBXML_NOERROR+LIBXML_ERR_FATAL+LIBXML_ERR_NONE);
         if ($result === false) {

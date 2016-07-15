@@ -196,12 +196,14 @@ class Base
     protected function buildListarB($pagina = '', $filtros = [])
     {
         $msg = '<PAGINA>'.$pagina.'</PAGINA>';
-        foreach ($filtros as $filtro) {
-            $f = '<filtros>';
-            $f .= $this->addTag($filtro);
-            $f .= '</filtros>';
-            $msg .= $f;
-        };
+        if (! empty($filtros)) {
+            foreach ($filtros as $filtro) {
+                $f = '<filtros>';
+                $f .= $this->addTag($filtro);
+                $f .= '</filtros>';
+                $msg .= $f;
+            };
+        }
         $msg .= '</svc:listar>';
         return $msg;
     }
