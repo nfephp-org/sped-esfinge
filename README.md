@@ -33,9 +33,9 @@ Implementação dos serviços
 - ComponentesFolhaPagamento (enviar e listar)
 - FolhaPagamento (enviar e listar)
 
-## FAse 2:
+## Fase 2:
 
-A fase dois com a implementação de outros serviços, será feita apenas quando surgir essas necessidades.
+A fase dois com a implementação de outros serviços, será feita apenas quando surgir essa necessidade.
 
 ## Install
 
