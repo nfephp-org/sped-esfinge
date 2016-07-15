@@ -1,5 +1,13 @@
 {
-    "username":"",
-    "password":"",
-    "codigoUnidadeGestora":""
+    "tpAmb": 2,
+    "username": "fulano",
+    "password": "senha",
+    "codigoUnidadeGestora": "12345",
+    "pathFiles": "\/var\/esfinge",
+    "aProxyConf": {
+        "proxyIp": "",
+        "proxyPort": "",
+        "proxyUser": "",
+        "proxyPass": ""
+    }
 }
