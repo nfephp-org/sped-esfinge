@@ -14,7 +14,9 @@ use NFePHP\Esfinge\Response;
 class ResponseTest extends FactoryTest
 {
     /**
-     *
+     * @covers NFePHP\Esfinge\Response::readReturn
+     * @covers NFePHP\Esfinge\Response::xml2Obj
+     * @covers NFePHP\Esfinge\Response::readRespStd
      */
     public function testObterToken()
     {
@@ -26,7 +28,12 @@ class ResponseTest extends FactoryTest
         $expected = str_replace("\n", "", file_get_contents($this->pathFixtures."responseObterToken.txt"));
         $this->assertEquals($expected, $jsonR);
     }
-    
+
+    /**
+     * @covers NFePHP\Esfinge\Response::readReturn
+     * @covers NFePHP\Esfinge\Response::xml2Obj
+     * @covers NFePHP\Esfinge\Response::readRespStd
+     */
     public function testObterSituacaoToken()
     {
         $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."responseObterSituacaoToken.xml"));
@@ -38,6 +45,11 @@ class ResponseTest extends FactoryTest
         $this->assertEquals($expected, $jsonR);
     }
     
+    /**
+     * @covers NFePHP\Esfinge\Response::readReturn
+     * @covers NFePHP\Esfinge\Response::xml2Obj
+     * @covers NFePHP\Esfinge\Response::readRespStd
+     */
     public function testIniciarTransferencia()
     {
         $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."responseIniciarTransferencia.xml"));
@@ -49,6 +61,11 @@ class ResponseTest extends FactoryTest
         $this->assertEquals($expected, $jsonR);
     }
     
+    /**
+     * @covers NFePHP\Esfinge\Response::readReturn
+     * @covers NFePHP\Esfinge\Response::xml2Obj
+     * @covers NFePHP\Esfinge\Response::readRespStd
+     */
     public function testFinalizarTransferencia()
     {
         $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."responseFinalizarTransferencia.xml"));
@@ -60,6 +77,11 @@ class ResponseTest extends FactoryTest
         $this->assertEquals($expected, $jsonR);
     }
     
+    /**
+     * @covers NFePHP\Esfinge\Response::readReturn
+     * @covers NFePHP\Esfinge\Response::xml2Obj
+     * @covers NFePHP\Esfinge\Response::readRespStd
+     */
     public function testCancelarTransferencia()
     {
         $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."responseCancelarTransferencia.xml"));
@@ -75,8 +97,20 @@ class ResponseTest extends FactoryTest
     {
     }
     
+    /**
+     * @covers NFePHP\Esfinge\Response::readReturn
+     * @covers NFePHP\Esfinge\Response::xml2Obj
+     * @covers NFePHP\Esfinge\Response::readRespStd
+     */
     public function testServidorListar()
     {
+        $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."servidorL_response.xml"));
+        $method = 'listar';
+        $resp = Response::readReturn($method, $xml);
+        $jsonR = json_encode($resp);
+        //file_put_contents($this->pathFixtures."servidorL_response.txt", $jsonR);
+        $expected = str_replace("\n", "", file_get_contents($this->pathFixtures."servidorL_response.txt"));
+        $this->assertEquals($expected, $jsonR);
     }
     
     public function testSituacaoServidorFolhaPagamentoEnviar()
@@ -91,6 +125,11 @@ class ResponseTest extends FactoryTest
     {
     }
     
+    /**
+     * @covers NFePHP\Esfinge\Response::readReturn
+     * @covers NFePHP\Esfinge\Response::xml2Obj
+     * @covers NFePHP\Esfinge\Response::readRespStd
+     */
     public function testComponentesFolhaPagamentoListar()
     {
         $xml = str_replace("\n", "", file_get_contents($this->pathFixtures."componentesFolhaPagamentoL_response.xml"));
