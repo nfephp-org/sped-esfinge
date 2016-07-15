@@ -140,14 +140,17 @@ class CurlSoap
             throw new RuntimeException($msg);
         }
         //obtem o bloco html da resposta
-        $xPos = stripos($resposta, "\x1f\x8b");
+        $xPos = stripos($resposta, "\r\n\r\n");
         $blocoHtml = $resposta;
         $decompressPart = '';
         if ($xPos !== false) {
-            $ad = explode("\x1f\x8b", $resposta);
-            $blocoHtml = substr($ad[0], 0, strlen($ad[0])-2);
-            $compressPart = "\x1f\x8b" . $ad[1];
-            $decompressPart = trim(gzdecode($compressPart));
+            $blocoHtml = substr($resposta, 0, $xPos);
+            $compressPart = substr($resposta, $xPos+4, strlen($resposta)-($xPos+4));
+            if (substr($compressPart, 0, 2) == "\x1f\x8b") {
+                $decompressPart = trim(gzdecode($compressPart));
+            } else {
+                $decompressPart = $compressPart;
+            }
         }
         if ($this->infoCurl["http_code"] != '200') {
             //se não é igual a 200 houve erro
