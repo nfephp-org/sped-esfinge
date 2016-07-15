@@ -109,7 +109,7 @@ class Response
      * @param DOMDocument $dom
      * @return string
      */
-    public static function checkForFault($dom)
+    protected static function checkForFault($dom)
     {
         $tagfault = $dom->getElementsByTagName('Fault')->item(0);
         if (empty($tagfault)) {

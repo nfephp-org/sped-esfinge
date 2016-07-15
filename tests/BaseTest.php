@@ -17,6 +17,7 @@ class BaseTest extends FactoryTest
     /**
      * @covers NFePHP\Esfinge\Base::__construct
      * @covers NFePHP\Esfinge\Base::loadSoapClass
+     * @covers NFePHP\Esfinge\Base::buildSoapHeader
      */
     public function testInstantiable()
     {
