@@ -85,7 +85,7 @@ class Base
         if (is_file($configJson)) {
             $config = file_get_contents($configJson);
         }
-        $this->aConfig = (array) json_decode($config, true);
+        $this->aConfig = json_decode($config, true);
         $this->username = $this->aConfig['username'];
         $this->password = $this->aConfig['password'];
         $this->codigoUnidadeGestora = $this->aConfig['codigoUnidadeGestora'];
