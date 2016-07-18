@@ -55,6 +55,8 @@ class CurlSoap
     private $proxyPASS = '';
     private $pathlog;
     private $debug = false;
+    private $msgHeader = '';
+    private $msgBody = '';
     
     public function __construct($pathlog, $timeout, $aproxy, $debug = false)
     {
@@ -136,41 +138,25 @@ class CurlSoap
             "Content-length: $tamanho"
         ];
         //solicita comunicação via cURL
-        $resposta = $this->zCommCurl($urlservice, $data, $parametros);
+        $resposta = $this->zCommCurl($urlservice, $data, $parametros, $mark);
         if (empty($resposta)) {
             $msg = "Não houve retorno do Curl.\n $this->errorCurl";
             throw new RuntimeException($msg);
         }
-        if ($this->debug) {
-            $filepath = $mark.'_DEBUG.log';
-            FilesFolders::save($this->pathlog, $filepath, $resposta);
-        }
-        //obtem o bloco html da resposta
-        $xPos = stripos($resposta, "\r\n\r\n\x1f\x8b");
-        $blocoHtml = $resposta;
-        $decompressPart = '';
-        if ($xPos !== false) {
-            $blocoHtml = substr($resposta, 0, $xPos);
-            $compressPart = substr($resposta, $xPos+4, strlen($resposta)-($xPos+4));
-            if (substr($compressPart, 0, 2) == "\x1f\x8b") {
-                $decompressPart = trim(gzdecode($compressPart));
-            } else {
-                $decompressPart = $compressPart;
-            }
-        }
+        //verifica o retorno
         if ($this->infoCurl["http_code"] != '200') {
             //se não é igual a 200 houve erro
-            $msg = $blocoHtml ."\r\n". $decompressPart;
+            $msg = $this->msgHeader ."\r\n\r\n". $this->msgBody;
             $filepath = $mark.'_ERROR.log';
             FilesFolders::save($this->pathlog, $filepath, $msg);
             throw new RuntimeException($msg);
         }
         //localiza a primeira marca de tag
-        $xPos = stripos($decompressPart, "<");
-        $lenresp = strlen($decompressPart);
+        $xPos = stripos($this->msgBody, "<");
+        $lenresp = strlen($this->msgBody);
         //se não existir não é um xml nem um html
         if ($xPos !== false) {
-            $xml = substr($decompressPart, $xPos, $lenresp-$xPos);
+            $xml = substr($this->msgBody, $xPos, $lenresp-$xPos);
         } else {
             $xml = '';
         }
@@ -200,7 +186,7 @@ class CurlSoap
      * @param array $parametros
      * @return string
      */
-    protected function zCommCurl($url, $data = '', $parametros = array())
+    protected function zCommCurl($url, $data = '', $parametros = array(), $mark = 'dd')
     {
         //incializa cURL
         $oCurl = curl_init();
@@ -233,15 +219,36 @@ class CurlSoap
         }
         //inicia a conexão
         $resposta = curl_exec($oCurl);
+        if ($this->debug) {
+            $filepath = $mark.'_DEBUG.log';
+            FilesFolders::save($this->pathlog, $filepath, $resposta);
+        }
         //obtem as informações da conexão
         $info = curl_getinfo($oCurl);
+        //split http header e body
+        $header_size = curl_getinfo($oCurl, CURLINFO_HEADER_SIZE);
+        $this->msgHeader = substr($resposta, 0, $header_size);
+        $this->msgBody = $this->ungzip(substr($resposta, $header_size));
         //carrega os dados para debug
-        $this->zDebug($info, $data, $resposta);
+        $this->zDebug($info, $data, "$this->msgHeader\n\n$this->msgBody");
         $this->errorCurl = curl_error($oCurl);
         //fecha a conexão
         curl_close($oCurl);
         //retorna resposta
         return $resposta;
+    }
+    
+    /**
+     * Uncompress gzip msg usando gzdecode
+     * @param string $body
+     * @return string
+     */
+    private function ungzip($body)
+    {
+        if (substr($body, 0, 2) == "\x1f\x8b") {
+            return trim(gzdecode($body));
+        }
+        return $body;
     }
     
     /**
