@@ -188,6 +188,8 @@ class CurlSoap
      */
     protected function zCommCurl($url, $data = '', $parametros = array(), $mark = 'dd')
     {
+        $this->msgHeader = '';
+        $this->msgBody = '';
         //incializa cURL
         $oCurl = curl_init();
         //setting da seção soap
