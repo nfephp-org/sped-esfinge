@@ -51,9 +51,9 @@ class Tools extends Base
      * Construtor
      * @param string $configJson
      */
-    public function __construct($configJson = '')
+    public function __construct($configJson = '', $debug = false)
     {
-        parent::__construct($configJson);
+        parent::__construct($configJson, $debug);
     }
     
     /**
