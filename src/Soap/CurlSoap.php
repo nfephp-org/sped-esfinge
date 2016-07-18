@@ -54,8 +54,9 @@ class CurlSoap
      */
     private $proxyPASS = '';
     private $pathlog;
+    private $debug = false;
     
-    public function __construct($pathlog, $timeout, $aproxy)
+    public function __construct($pathlog, $timeout, $aproxy, $debug = false)
     {
         $this->pathlog = $pathlog;
         $this->soapTimeout = $timeout;
@@ -64,6 +65,7 @@ class CurlSoap
         $user = $aproxy['proxyUser'];
         $pass = $aproxy['proxyPass'];
         $this->setProxy($ipNumber, $port, $user, $pass);
+        $this->debug = $debug;
     }
     
     /**
@@ -138,6 +140,10 @@ class CurlSoap
         if (empty($resposta)) {
             $msg = "Não houve retorno do Curl.\n $this->errorCurl";
             throw new RuntimeException($msg);
+        }
+        if ($this->debug) {
+            $filepath = $mark.'_DEBUG.log';
+            FilesFolders::save($this->pathlog, $filepath, $resposta);
         }
         //obtem o bloco html da resposta
         $xPos = stripos($resposta, "\r\n\r\n");

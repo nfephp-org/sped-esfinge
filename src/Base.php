@@ -76,7 +76,7 @@ class Base
      * Contrutor
      * @param string $configJson
      */
-    public function __construct($configJson = '')
+    public function __construct($configJson = '', $debug = false)
     {
         if (empty($configJson)) {
             throw new InvalidArgumentException('A configuração deve ser passada.');
@@ -92,7 +92,7 @@ class Base
         $this->aProxy = $this->aConfig['aProxyConf'];
         $this->setAmbiente($this->aConfig['tpAmb']);
         $this->pathFiles = $this->aConfig['pathFiles'];
-        $this->loadSoapClass();
+        $this->loadSoapClass($debug);
         $this->buildSoapHeader();
     }
     
@@ -306,14 +306,15 @@ class Base
     /**
      * Carrega a classe SOAP e os certificados
      */
-    protected function loadSoapClass()
+    protected function loadSoapClass($debug = false)
     {
         $pathlog = $this->pathFiles.DIRECTORY_SEPARATOR.$this->ambiente;
         $this->oSoap = null;
         $soap = new CurlSoap(
             $pathlog,
             $this->soapTimeout,
-            $this->aProxy
+            $this->aProxy,
+            $debug
         );
         $this->oSoap = $soap;
     }

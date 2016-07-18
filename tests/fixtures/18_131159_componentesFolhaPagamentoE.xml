@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://componentesfolhapagamento.ws.tce.sc.gov.br/">
+    <soap:Header>
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+                <wsse:Username>ipisarita</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123456</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soap:Header>
+    <soap:Body>
+        <svc:enviar>
+            <chaveToken>5b0c58c3-bb41-469e-99fc-74f3a0d3bbfe</chaveToken>
+            <competencia>201601</competencia>
+            <componentesFolhaPagamento>
+                <idRetorno>9099</idRetorno>
+                <codigoComponente>9099</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>1/3 FÉRIAS PROPORCIONAIS RESCISÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>23</idRetorno>
+                <codigoComponente>23</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ABONO ANUAL(13º. SAL.)</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1018</idRetorno>
+                <codigoComponente>1018</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ABONO PECUNIÁRIO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1022</idRetorno>
+                <codigoComponente>1022</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ABONO PECUNIÁRIO 1/3</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9621</idRetorno>
+                <codigoComponente>9621</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ADIC.ESPECIALIZ.LC 231/13</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9512</idRetorno>
+                <codigoComponente>9512</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ADICIONAL ADQUIRIDO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9586</idRetorno>
+                <codigoComponente>9586</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ADICIONAL DE ZELO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9239</idRetorno>
+                <codigoComponente>9239</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ADICIONAL NOTURNO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9625</idRetorno>
+                <codigoComponente>9625</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>ANTECIPAÇÃO 13º SAL.</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>5</idRetorno>
+                <codigoComponente>5</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>APOS. COMPULSÓRIA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1</idRetorno>
+                <codigoComponente>1</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>APOS. POR IDADE</descricaoComponente>
+                <baseLegalComponente>lei 001</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>8</idRetorno>
+                <codigoComponente>8</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>APOS. POR IDADE E TEMPO CONTRIB.</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>2</idRetorno>
+                <codigoComponente>2</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>APOS. POR INVALIDEZ</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>12</idRetorno>
+                <codigoComponente>12</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>APOS. PROFESSOR</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9594</idRetorno>
+                <codigoComponente>9594</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>AUX. MUTUÁRIO COHAB/SC</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9035</idRetorno>
+                <codigoComponente>9035</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>AUXÍLIO NATALIDADE</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9251</idRetorno>
+                <codigoComponente>9251</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>BOLSA DE ESTUDO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9501</idRetorno>
+                <codigoComponente>9501</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>BOLSA PÓS-GRADUAÇÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9600</idRetorno>
+                <codigoComponente>9600</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>BONIFICAÇÃO AD.HR.OPER.</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9232</idRetorno>
+                <codigoComponente>9232</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>BONIFICAÇÃO APOSENTADO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9476</idRetorno>
+                <codigoComponente>9476</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>COMPL. CARGA HORÁRIA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1011</idRetorno>
+                <codigoComponente>1011</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>COMPLEMENTO PROV.</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9049</idRetorno>
+                <codigoComponente>9049</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>CONTRIBUIÇÃO SINDICAL</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9613</idRetorno>
+                <codigoComponente>9613</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>DESC.EM FAVOR DO ERÁRIO(%)</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1010</idRetorno>
+                <codigoComponente>1010</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>07</especificacaoNaturezaComponente>
+                <descricaoComponente>DESCONTO - LIMITE TETO MAXIMO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1015</idRetorno>
+                <codigoComponente>1015</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>07</especificacaoNaturezaComponente>
+                <descricaoComponente>DESCONTO - TETO RPGS</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9079</idRetorno>
+                <codigoComponente>9079</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>DIFERENÇA DE FÉRIAS</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9580</idRetorno>
+                <codigoComponente>9580</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>DIFERENÇA DE SALÁRIO - APOSENTADO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9573</idRetorno>
+                <codigoComponente>9573</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>DIFERENÇA DE SALÁRIO - PENSIONISTA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9535</idRetorno>
+                <codigoComponente>9535</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>DIFERENÇA DE TRIÊNIO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9550</idRetorno>
+                <codigoComponente>9550</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>DIFERENÇA SALÁRIO MÍNIMO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9490</idRetorno>
+                <codigoComponente>9490</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>DIFERENÇA VENCTº COMISSIONADO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1016</idRetorno>
+                <codigoComponente>1016</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>FÉRIAS</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1020</idRetorno>
+                <codigoComponente>1020</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>FERIAS 1/3</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9096</idRetorno>
+                <codigoComponente>9096</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>FÉRIAS PROPORCIONAIS RESCISÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9592</idRetorno>
+                <codigoComponente>9592</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>FUNÇÃO GRATIFICADA LEI 6.438</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9223</idRetorno>
+                <codigoComponente>9223</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. COMP. CARGA HORÁRIA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9485</idRetorno>
+                <codigoComponente>9485</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. COMP. CARGA HORÁRIA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9542</idRetorno>
+                <codigoComponente>9542</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. DE FUNÇÃO ESPECIALIZADA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9216</idRetorno>
+                <codigoComponente>9216</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. DOC. ENSINO INFANTIL</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9224</idRetorno>
+                <codigoComponente>9224</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. ESC. ISOLADA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9247</idRetorno>
+                <codigoComponente>9247</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. ESP. 40H. APOSENTADO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9248</idRetorno>
+                <codigoComponente>9248</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. ESP. 40H. PENSIONISTA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9544</idRetorno>
+                <codigoComponente>9544</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. GRADUAÇÃO 10%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>29</idRetorno>
+                <codigoComponente>29</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. HOR. ESP. SAUDE</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9222</idRetorno>
+                <codigoComponente>9222</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. REGENCIA DE CLASSE</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9228</idRetorno>
+                <codigoComponente>9228</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT. SUP. ED. P/ O LAR</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9605</idRetorno>
+                <codigoComponente>9605</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRAT.DOC.ENS. FUNDAMENTAL</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9568</idRetorno>
+                <codigoComponente>9568</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>GRATIFICAÇAO GCCD 10%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9240</idRetorno>
+                <codigoComponente>9240</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>IMPORTANCIA PAGA A MAIOR</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>51</idRetorno>
+                <codigoComponente>51</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>06</especificacaoNaturezaComponente>
+                <descricaoComponente>IMPOSTO DE RENDA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1024</idRetorno>
+                <codigoComponente>1024</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>06</especificacaoNaturezaComponente>
+                <descricaoComponente>IMPOSTO DE RENDA - FERIAS</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1026</idRetorno>
+                <codigoComponente>1026</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>06</especificacaoNaturezaComponente>
+                <descricaoComponente>IMPOSTO DE RENDA RRA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>28</idRetorno>
+                <codigoComponente>28</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>INSALUBRIDADE</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9429</idRetorno>
+                <codigoComponente>9429</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>INSALUBRIDADE % INFORMADO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9011</idRetorno>
+                <codigoComponente>9011</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>INSALUBRIDADE 10%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9502</idRetorno>
+                <codigoComponente>9502</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>INSALUBRIDADE 12%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9503</idRetorno>
+                <codigoComponente>9503</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>INSALUBRIDADE 16%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9012</idRetorno>
+                <codigoComponente>9012</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>INSALUBRIDADE 20%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9013</idRetorno>
+                <codigoComponente>9013</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>INSALUBRIDADE 40%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>50</idRetorno>
+                <codigoComponente>50</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>04</especificacaoNaturezaComponente>
+                <descricaoComponente>INSS</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9416</idRetorno>
+                <codigoComponente>9416</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>05</especificacaoNaturezaComponente>
+                <descricaoComponente>IPI - CAPITALIZAÇÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9056</idRetorno>
+                <codigoComponente>9056</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>05</especificacaoNaturezaComponente>
+                <descricaoComponente>IPI - REPARTIÇÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9057</idRetorno>
+                <codigoComponente>9057</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>IPI 13º SALÁRIO - CAPITALIZAÇÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9536</idRetorno>
+                <codigoComponente>9536</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>LICENÇA PRÊMIO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>6</idRetorno>
+                <codigoComponente>6</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>PENSÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>54</idRetorno>
+                <codigoComponente>54</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>PENSÃO ALIMENTÍCIA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>53</idRetorno>
+                <codigoComponente>53</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>05</especificacaoNaturezaComponente>
+                <descricaoComponente>PREV. MUNICIPAL</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1025</idRetorno>
+                <codigoComponente>1025</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>05</especificacaoNaturezaComponente>
+                <descricaoComponente>PREV. MUNICIPAL FERIAS</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>1027</idRetorno>
+                <codigoComponente>1027</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>05</especificacaoNaturezaComponente>
+                <descricaoComponente>PREV. MUNICIPAL RRA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9584</idRetorno>
+                <codigoComponente>9584</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>07</especificacaoNaturezaComponente>
+                <descricaoComponente>REDUTOR DE PROV</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9220</idRetorno>
+                <codigoComponente>9220</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>REPRESENTAÇÃO DE FUNÇÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9221</idRetorno>
+                <codigoComponente>9221</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>REPRESENTAÇÃO DE FUNÇÃO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>7</idRetorno>
+                <codigoComponente>7</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>SALÁRIO NORMAL</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9233</idRetorno>
+                <codigoComponente>9233</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>SINDAFIMSC</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9230</idRetorno>
+                <codigoComponente>9230</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>SINDICATO - SSPMRFRI</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>11</idRetorno>
+                <codigoComponente>11</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>SUBSIDIO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9433</idRetorno>
+                <codigoComponente>9433</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>09</especificacaoNaturezaComponente>
+                <descricaoComponente>SUSPENSÃO DE PAGAMENTO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>26</idRetorno>
+                <codigoComponente>26</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIÊNIO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9018</idRetorno>
+                <codigoComponente>9018</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIÊNIO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9423</idRetorno>
+                <codigoComponente>9423</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIÊNIO 10%</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9418</idRetorno>
+                <codigoComponente>9418</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIÊNIO 5% CATEGORIA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9246</idRetorno>
+                <codigoComponente>9246</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIENIO 70% SOB/CAT.</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9606</idRetorno>
+                <codigoComponente>9606</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIENIO 70% SOB/VECTO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9419</idRetorno>
+                <codigoComponente>9419</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIENIO ADQUIRIDO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>27</idRetorno>
+                <codigoComponente>27</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIÊNIO ADQUIRIDO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9231</idRetorno>
+                <codigoComponente>9231</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>TRIENIO APOSENTADO</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9042</idRetorno>
+                <codigoComponente>9042</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VALE TRANSPORTE</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9545</idRetorno>
+                <codigoComponente>9545</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VALORES RETROATIVOS</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>E</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9624</idRetorno>
+                <codigoComponente>9624</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VANT.PESS.NOM.ID LC_265/14</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9218</idRetorno>
+                <codigoComponente>9218</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VANT.PESSOAL NOMIN.IDENTIFICADA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+            <componentesFolhaPagamento>
+                <idRetorno>9227</idRetorno>
+                <codigoComponente>9227</codigoComponente>
+                <anoMesComponente>201601</anoMesComponente>
+                <especificacaoNaturezaComponente>01</especificacaoNaturezaComponente>
+                <descricaoComponente>VANT.PESSOAL NOMINALMENTE IDENTIFICADA</descricaoComponente>
+                <baseLegalComponente>INDEFINIDO</baseLegalComponente>
+                <indicadorComponente>P</indicadorComponente>
+            </componentesFolhaPagamento>
+        </svc:enviar>
+    </soap:Body>
+</soap:Envelope>
