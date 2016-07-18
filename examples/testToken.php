@@ -5,7 +5,7 @@ include_once '../bootstrap.php';
 
 use NFePHP\Esfinge\Tools;
 
-$tools = new Tools('../config/config.json');
+$tools = new Tools('../config/config.json', true);
 
 //obter
 $retorno = $tools->token($tools::TK_OBTEM);

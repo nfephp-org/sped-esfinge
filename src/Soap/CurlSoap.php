@@ -146,7 +146,7 @@ class CurlSoap
             FilesFolders::save($this->pathlog, $filepath, $resposta);
         }
         //obtem o bloco html da resposta
-        $xPos = stripos($resposta, "\r\n\r\n");
+        $xPos = stripos($resposta, "\r\n\r\n\x1f\x8b");
         $blocoHtml = $resposta;
         $decompressPart = '';
         if ($xPos !== false) {
