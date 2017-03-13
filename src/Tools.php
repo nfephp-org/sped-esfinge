@@ -161,7 +161,6 @@ class Tools extends Base
                 if ($this->tokenid == '') {
                     //não é possivel iniciar sem um token valido
                     throw new RuntimeException('Não é possivel iniciar a transferência sem um token valido');
-                    //$this->token(self::TK_O);
                 }
                 if ($this->flagIniciar === true) {
                     $resp = [
@@ -205,6 +204,25 @@ class Tools extends Base
                 ) {
                     $this->tokenid = $resp['chaveToken'];
                 }
+                $resp1 = $resp;
+                if ($resp['bStat'] && $resp['status'] == 'ERRO') {
+                    $xPos = stripos('xx'.$resp['message'], "Sua unidade gestora já obteve o token com chave [");
+                    if ($xPos !== false) {
+                        $chave = $this->getStringBetween($resp['message'], '[', ']');
+                        if ($chave != '') {
+                            $this->tokenid = $chave;
+                            $resp = [
+                                'bStat' => true,
+                                'message' => $resp1['message'],
+                                'status' => 'OK',
+                                'chaveToken' => $this->tokenid,
+                                'posicao' => 2,
+                                'situacao' => 'Pronto para envio ou consulta'
+                            ];
+                        }
+                    }
+                }
+                $resp1 = null;
                 break;
             case self::TK_STATUS:
                 //Retorna a situação do token passado como parâmetro. Para evitar solicitações
@@ -236,6 +254,25 @@ class Tools extends Base
                 break;
         }
         return $resp;
+    }
+    
+    /**
+     * Extrai os dados entr dois marcadores
+     * @param string $string
+     * @param string $start
+     * @param string $end
+     * @return string
+     */
+    private function getStringBetween($string, $start, $end)
+    {
+        $string = ' ' . $string;
+        $ini = strpos($string, $start);
+        if ($ini == 0) {
+            return '';
+        }
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+        return substr($string, $ini, $len);
     }
     
     /**

@@ -1,0 +1,14 @@
+
+Admissão por Nomeação - NOVO - https://desenv2.tce.sc.gov.br:7443/esfinge/services/admissaoNomeacaoWS?wsdl
+
+Servidor - Continua
+
+Componentes da folha de pagamento - Continua
+
+Dados funcionais do Agente público - NOVO - https://desenv2.tce.sc.gov.br:7443/esfinge/services/dadosFuncionaisAgentePublicoAtivoWS?wsdl
+
+Dados de vínculo de inativo - NOVO - https://desenv2.tce.sc.gov.br:7443/esfinge/services/dadosVinculoInativoWS?wsdl
+
+Dados de vínculo de Pensionista - NOVO - https://desenv2.tce.sc.gov.br:7443/esfinge/services/dadosVinculoPensionistaWS?wsdl
+
+Folha de Pagamento - Continua
