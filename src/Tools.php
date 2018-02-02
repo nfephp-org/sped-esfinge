@@ -257,7 +257,7 @@ class Tools extends Base
     }
     
     /**
-     * Extrai os dados entr dois marcadores
+     * Extrai os dados entre dois marcadores
      * @param string $string
      * @param string $start
      * @param string $end
@@ -281,7 +281,7 @@ class Tools extends Base
      * @throws InvalidArgumentException
      * @throws RuntimeException
      */
-    protected function obterTokenIniciarTransferencia($data = array(), $method = 'L')
+    protected function obterTokenIniciarTransferencia($data = [], $method = 'L')
     {
         if (empty($data)) {
             throw new InvalidArgumentException('Não foram passados dados para o método');
@@ -303,7 +303,7 @@ class Tools extends Base
      * @param string $method
      * @return array
      */
-    public function servidor($data = array(), $method = 'L')
+    public function servidor($data = [], $method = 'L')
     {
         $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/servidorWS';
@@ -322,7 +322,7 @@ class Tools extends Base
      * @param string $method
      * @return array
      */
-    public function situacaoServidorFolhaPagamento($data = array(), $method = 'L')
+    public function situacaoServidorFolhaPagamento($data = [], $method = 'L')
     {
         $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/situacaoServidorFolhaPagamentoWS';
@@ -340,7 +340,7 @@ class Tools extends Base
      * @param string $method
      * @return array
      */
-    public function componentesFolhaPagamento($data = array(), $method = 'L')
+    public function componentesFolhaPagamento($data = [], $method = 'L')
     {
         $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/componentesFolhaPagamentoWS';
@@ -358,7 +358,7 @@ class Tools extends Base
      * @param string $method
      * @return array
      */
-    public function folhaPagamento($data = array(), $method = 'L')
+    public function folhaPagamento($data = [], $method = 'L')
     {
         $this->obterTokenIniciarTransferencia($data, $method);
         $uri = $this->url[$this->tpAmb].'/esfinge/services/folhaPagamentoWS';
