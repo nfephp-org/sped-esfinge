@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php" : "~5.5|~7.0",
+        "php" : ">=7.4",
         "league/flysystem": "^1.0"
     },
     "require-dev": {
@@ -29,7 +29,7 @@
     "autoload": {
         "psr-4": {
           "NFePHP\\Esfinge\\": "src/"
-        } 
+        }
     },
     "autoload-dev": {
         "psr-4": {
